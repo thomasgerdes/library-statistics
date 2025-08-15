@@ -292,26 +292,21 @@ function initChart2(type = 'pie') {
   currentChartType2 = type;
   updateActiveButton2();
 
-  // Für Balkendiagramm: sortiere nach Bestandsgröße (groß zu klein)
-  let dataToUse = subjectData;
-  let colorsToUse = colors;
+  // Apply sorting for BOTH pie and bar charts (from largest to smallest)
+  // Create index mapping for original order
+  const indexMapping = {};
+  subjectData.forEach((item, index) => {
+    indexMapping[`${item.signature}-${item.name}`] = index;
+  });
   
-  if (type === 'bar') {
-    // Erstelle Index-Mapping für ursprüngliche Reihenfolge
-    const indexMapping = {};
-    subjectData.forEach((item, index) => {
-      indexMapping[`${item.signature}-${item.name}`] = index;
-    });
-    
-    // Sortiere Daten nach count (absteigend)
-    dataToUse = [...subjectData].sort((a, b) => b.count - a.count);
-    
-    // Sortiere Farben entsprechend der neuen Reihenfolge
-    colorsToUse = dataToUse.map(item => {
-      const originalIndex = indexMapping[`${item.signature}-${item.name}`];
-      return colors[originalIndex];
-    });
-  }
+  // Sort data by count (descending) for both chart types
+  const dataToUse = [...subjectData].sort((a, b) => b.count - a.count);
+  
+  // Sort colors according to the new order
+  const colorsToUse = dataToUse.map(item => {
+    const originalIndex = indexMapping[`${item.signature}-${item.name}`];
+    return colors[originalIndex];
+  });
 
   const config = {
     type: type,
