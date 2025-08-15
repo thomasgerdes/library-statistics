@@ -6,7 +6,7 @@ This interactive dashboard visualizes library acquisitions and collection data f
 
 ## What it shows
 
-- Annual print book acquisitions from 2000-2024
+- Annual print book acquisitions
 - Current collection breakdown by subject areas and signature groups
 - Total collection overview including books and bound journal volumes
 
