@@ -3135,6 +3135,22 @@ flex: 1 1 200px;
 min-width: 200px;
 max-width: 250px;
 }
+
+@media (max-width: 768px) {
+.info-box {
+flex: 1 1 calc(50% - 5px);
+min-width: calc(50% - 5px);
+max-width: calc(50% - 5px);
+}
+}
+
+@media (max-width: 480px) {
+.info-box {
+flex: 1 1 100%;
+min-width: 100%;
+max-width: 100%;
+}
+}
 .info-box-value {
 font-size: 20px;
 font-weight: bold;

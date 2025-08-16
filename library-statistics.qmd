@@ -47,6 +47,23 @@ flex: 1 1 200px;
 min-width: 200px;
 max-width: 250px;
 }
+/* Für Tablets und kleinere Bildschirme */
+@media (max-width: 768px) {
+  .info-box {
+    flex: 1 1 calc(50% - 5px);
+    min-width: calc(50% - 5px);
+    max-width: calc(50% - 5px);
+  }
+}
+
+/* Für sehr kleine Bildschirme (Smartphones) */
+@media (max-width: 480px) {
+  .info-box {
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
 .info-box-value {
   font-size: 20px;
   font-weight: bold;
