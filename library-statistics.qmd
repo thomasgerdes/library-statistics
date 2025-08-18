@@ -1,5 +1,6 @@
 ---
 title: "Bibliothek MPI"
+subtitle: "Erwerbungen und Bestandsanalyse 2000-2024"
 author: "Thomas Gerdes"
 date: "2025-08-15"
 format:
@@ -11,8 +12,13 @@ format:
     interactive: true
     embed-resources: true
     page-layout: full
+    lang: de
     include-in-header:
       - text: |
+          <meta name="author" content="Thomas Gerdes">
+          <meta name="description" content="Library statistics dashboard showing acquisitions and collection data for MPI library 2000-2024">
+          <meta name="keywords" content="library, statistics, acquisitions, MPI, bibliography">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 ---
 
@@ -27,10 +33,10 @@ Diese Seite zeigt die Erwerbungen von Print-Büchern der Institutsbibliothek in 
 ```{=html}
 <style>
 .quarto-container {
-  max-width: 1400px !important;
+  max-width: 1400px !important;
 }
 body {
-  margin: 0 20px;
+  margin: 0 20px;
 }
 .info-box-container {
   display: flex;
@@ -43,9 +49,9 @@ body {
   padding: 12px;
   border-radius: 6px;
   text-align: center;
-flex: 1 1 200px;
-min-width: 200px;
-max-width: 250px;
+  flex: 1 1 200px;
+  min-width: 200px;
+  max-width: 250px;
 }
 /* Für Tablets und kleinere Bildschirme */
 @media (max-width: 768px) {
@@ -82,49 +88,72 @@ max-width: 250px;
 .info-box.green .info-box-value { color: #28a745; }
 .info-box.red { border-left: 3px solid #dc3545; }
 .info-box.red .info-box-value { color: #dc3545; }
+
+/* Button styling improvements */
+.dashboard-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard-button:hover {
+  opacity: 0.9;
+}
+
+.dashboard-button:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
 </style>
 
 <div style="background: white; padding: 20px; margin: 30px 0;" data-q-loc="body">
-  
-  <h1 style="color: #333; text-align: center; margin: 10px 0 5px 0; font-size: 24px;">Zuwachs Bestand 2000-2024</h1>
-  
-  <div class="info-box-container" style="margin: 15px 0;">
-    <div class="info-box blue">
-      <div class="info-box-value" id="totalAcquisitions">-</div>
-      <div class="info-box-label">Gesamterwerbungen</div>
-    </div>
-    <div class="info-box blue">
-      <div class="info-box-value" id="avgPerYear">-</div>
-      <div class="info-box-label">Durchschnitt/Jahr</div>
-    </div>
-    <div class="info-box blue">
-      <div class="info-box-value" id="maxValue">-</div>
-      <div class="info-box-label">Höchstwert</div>
-    </div>
-  </div>
+  
+  <h1 style="color: #333; text-align: center; margin: 10px 0 5px 0; font-size: 24px;">Zuwachs Bestand 2000-2024</h1>
+  
+  <div class="info-box-container" style="margin: 15px 0;">
+    <div class="info-box blue">
+      <div class="info-box-value" id="totalAcquisitions" aria-live="polite">-</div>
+      <div class="info-box-label">Gesamterwerbungen</div>
+    </div>
+    <div class="info-box blue">
+      <div class="info-box-value" id="avgPerYear" aria-live="polite">-</div>
+      <div class="info-box-label">Durchschnitt/Jahr</div>
+    </div>
+    <div class="info-box blue">
+      <div class="info-box-value" id="maxValue" aria-live="polite">-</div>
+      <div class="info-box-label">Höchstwert</div>
+    </div>
+  </div>
 
-  <div style="position: relative; height: 600px; margin: 10px 0;">
-    <canvas id="acquisitionsChart"></canvas>
-  </div>
-  
-  <div class="info-box-container" style="margin: 20px 0;">
-    <div class="info-box gray">
-      <div class="info-box-value" id="phase1Avg">-</div>
-      <div class="info-box-label">⌀ Phase 1 (2000-2007)</div>
-    </div>
-    <div class="info-box green">
-      <div class="info-box-value" id="phase2Avg">-</div>
-      <div class="info-box-label">⌀ Phase 2 (2008-2020)</div>
-    </div>
-    <div class="info-box red">
-      <div class="info-box-value" id="phase3Avg">-</div>
-      <div class="info-box-label">⌀ Phase 3 (2021-2024)</div>
-    </div>
-  </div>
+  <div style="position: relative; height: 600px; margin: 10px 0;">
+    <canvas id="acquisitionsChart" role="img" aria-label="Diagramm der Bucherwerbungen von 2000 bis 2024"></canvas>
+  </div>
+  
+  <div class="info-box-container" style="margin: 20px 0;">
+    <div class="info-box gray">
+      <div class="info-box-value" id="phase1Avg" aria-live="polite">-</div>
+      <div class="info-box-label">⌀ Phase 1 (2000-2007)</div>
+    </div>
+    <div class="info-box green">
+      <div class="info-box-value" id="phase2Avg" aria-live="polite">-</div>
+      <div class="info-box-label">⌀ Phase 2 (2008-2020)</div>
+    </div>
+    <div class="info-box red">
+      <div class="info-box-value" id="phase3Avg" aria-live="polite">-</div>
+      <div class="info-box-label">⌀ Phase 3 (2021-2024)</div>
+    </div>
+  </div>
 
-  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
-    <button onclick="downloadChart1()" style="padding: 6px 12px; border: none; border-radius: 4px; background: #28a745; color: white; cursor: pointer; font-size: 12px;">PNG Download</button>
-  </div>
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button onclick="downloadChart1()" 
+            aria-label="Diagramm der Erwerbungen als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
 </div>
 
 <details id="details1">
@@ -134,31 +163,42 @@ max-width: 250px;
 </details>
 
 <div style="height: 80px;"></div>
+```
 
 ---
 
 ## Bestandsverteilung nach Fachgebieten (Print-Bücher)
 
+```{=html}
 <div style="background: white; padding: 20px; margin: 30px 0;" data-q-loc="body">
-  
-  <h1 style="color: #333; text-align: center; margin: 10px 0 5px 0; font-size: 24px;">Bestand Bibliothek 2025</h1>
-  
-  <div style="display: flex; justify-content: center; margin: 15px 0;">
-    <div class="info-box blue" style="flex: none;">
-      <div class="info-box-value" id="totalBooks">-</div>
-      <div class="info-box-label">Print-Bücher (gesamt)</div>
-    </div>
-  </div>
+  
+  <h1 style="color: #333; text-align: center; margin: 10px 0 5px 0; font-size: 24px;">Bestand Bibliothek 2025</h1>
+  
+  <div style="display: flex; justify-content: center; margin: 15px 0;">
+    <div class="info-box blue" style="flex: none;">
+      <div class="info-box-value" id="totalBooks" aria-live="polite">-</div>
+      <div class="info-box-label">Print-Bücher (gesamt)</div>
+    </div>
+  </div>
 
-  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
-    <button id="pieBtn2" onclick="changeChartType2('pie')" style="padding: 6px 12px; border: none; border-radius: 4px; background: #28a745; color: white; cursor: pointer; font-size: 12px;">Kreisdiagramm</button>
-    <button id="barBtn2" onclick="changeChartType2('bar')" style="padding: 6px 12px; border: none; border-radius: 4px; background: #007bff; color: white; cursor: pointer; font-size: 12px;">Balkendiagramm</button>
-    <button onclick="downloadChart2()" style="padding: 6px 12px; border: none; border-radius: 4px; background: #28a745; color: white; cursor: pointer; font-size: 12px;">PNG Download</button>
-  </div>
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button id="pieBtn2" onclick="changeChartType2('pie')" 
+            aria-label="Wechsel zu Kreisdiagramm für Bestandsverteilung"
+            class="dashboard-button" 
+            style="background: #28a745;">Kreisdiagramm</button>
+    <button id="barBtn2" onclick="changeChartType2('bar')" 
+            aria-label="Wechsel zu Balkendiagramm für Bestandsverteilung"
+            class="dashboard-button" 
+            style="background: #007bff;">Balkendiagramm</button>
+    <button onclick="downloadChart2()" 
+            aria-label="Diagramm der Bestandsverteilung als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
 
-  <div style="position: relative; height: 700px; margin: 10px 0;">
-    <canvas id="subjectChart"></canvas>
-  </div>
+  <div style="position: relative; height: 700px; margin: 10px 0;">
+    <canvas id="subjectChart" role="img" aria-label="Diagramm der Bestandsverteilung nach Fachgebieten"></canvas>
+  </div>
 </div>
 
 <details id="details2">
@@ -168,32 +208,43 @@ max-width: 250px;
 </details>
 
 <div style="height: 80px;"></div>
+```
 
 ---
 
 ## Gesamtbestand (Print)
 
+```{=html}
 <div style="background: white; padding: 20px; margin: 30px 0;" data-q-loc="body">
-  
-  <h1 style="color: #333; text-align: center; margin: 10px 0 5px 0; font-size: 24px;">Gesamtbestand Bibliothek 2025</h1>
-  <p style="text-align: center; color: #666; margin: 0 0 20px 0; font-size: 14px;">Aufteilung nach Medientypen</p>
-  
-  <div style="display: flex; justify-content: center; margin: 15px 0;">
-    <div class="info-box blue" style="flex: none;">
-      <div class="info-box-value" id="totalCollection">-</div>
-      <div class="info-box-label">Gesamtbestand</div>
-    </div>
-  </div>
+  
+  <h1 style="color: #333; text-align: center; margin: 10px 0 5px 0; font-size: 24px;">Gesamtbestand Bibliothek 2025</h1>
+  <p style="text-align: center; color: #666; margin: 0 0 20px 0; font-size: 14px;">Aufteilung nach Medientypen</p>
+  
+  <div style="display: flex; justify-content: center; margin: 15px 0;">
+    <div class="info-box blue" style="flex: none;">
+      <div class="info-box-value" id="totalCollection" aria-live="polite">-</div>
+      <div class="info-box-label">Gesamtbestand</div>
+    </div>
+  </div>
 
-  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
-    <button id="pieBtn3" onclick="changeChartType3('pie')" style="padding: 6px 12px; border: none; border-radius: 4px; background: #28a745; color: white; cursor: pointer; font-size: 12px;">Kreisdiagramm</button>
-    <button id="barBtn3" onclick="changeChartType3('bar')" style="padding: 6px 12px; border: none; border-radius: 4px; background: #007bff; color: white; cursor: pointer; font-size: 12px;">Balkendiagramm</button>
-    <button onclick="downloadChart3()" style="padding: 6px 12px; border: none; border-radius: 4px; background: #28a745; color: white; cursor: pointer; font-size: 12px;">PNG Download</button>
-  </div>
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button id="pieBtn3" onclick="changeChartType3('pie')" 
+            aria-label="Wechsel zu Kreisdiagramm für Gesamtbestand"
+            class="dashboard-button" 
+            style="background: #28a745;">Kreisdiagramm</button>
+    <button id="barBtn3" onclick="changeChartType3('bar')" 
+            aria-label="Wechsel zu Balkendiagramm für Gesamtbestand"
+            class="dashboard-button" 
+            style="background: #007bff;">Balkendiagramm</button>
+    <button onclick="downloadChart3()" 
+            aria-label="Diagramm des Gesamtbestands als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
 
-  <div style="position: relative; height: 500px; margin: 10px 0;">
-    <canvas id="totalCollectionChart"></canvas>
-  </div>
+  <div style="position: relative; height: 500px; margin: 10px 0;">
+    <canvas id="totalCollectionChart" role="img" aria-label="Diagramm des Gesamtbestands nach Medientypen"></canvas>
+  </div>
 </div>
 
 <details id="details3">
@@ -205,44 +256,52 @@ max-width: 250px;
 <div style="height: 120px;"></div>
 
 <script>
+/*
+Library Statistics Dashboard
+Author: Thomas Gerdes | License: MIT
+Interactive visualization of library acquisitions and collection data
+Built with Chart.js 3.9.1 and Quarto
+Version: 1.1.0 | Last updated: August 2025
+*/
+
 // ===== MASTER DATA SOURCE (für die gesamte Seite) =====
 const ACQUISITION_DATA = [
-  { year: 2000, value: 328 }, { year: 2001, value: 381 }, { year: 2002, value: 296 },
-  { year: 2003, value: 207 }, { year: 2004, value: 433 }, { year: 2005, value: 354 },
-  { year: 2006, value: 222 }, { year: 2007, value: 504 }, { year: 2008, value: 2106 },
-  { year: 2009, value: 3114 }, { year: 2010, value: 3742 }, { year: 2011, value: 3568 },
-  { year: 2012, value: 1880 }, { year: 2013, value: 2655 }, { year: 2014, value: 2802 },
-  { year: 2015, value: 2580 }, { year: 2016, value: 2928 }, { year: 2017, value: 3042 },
-  { year: 2018, value: 3811 }, { year: 2019, value: 2471 }, { year: 2020, value: 2153 },
-  { year: 2021, value: 674 }, { year: 2022, value: 176 }, { year: 2023, value: 189 }, { year: 2024, value: 209 }
+  { year: 2000, value: 328 }, { year: 2001, value: 381 }, { year: 2002, value: 296 },
+  { year: 2003, value: 207 }, { year: 2004, value: 433 }, { year: 2005, value: 354 },
+  { year: 2006, value: 222 }, { year: 2007, value: 504 }, { year: 2008, value: 2106 },
+  { year: 2009, value: 3114 }, { year: 2010, value: 3742 }, { year: 2011, value: 3568 },
+  { year: 2012, value: 1880 }, { year: 2013, value: 2655 }, { year: 2014, value: 2802 },
+  { year: 2015, value: 2580 }, { year: 2016, value: 2928 }, { year: 2017, value: 3042 },
+  { year: 2018, value: 3811 }, { year: 2019, value: 2471 }, { year: 2020, value: 2153 },
+  { year: 2021, value: 674 }, { year: 2022, value: 176 }, { year: 2023, value: 189 }, { year: 2024, value: 209 }
 ];
 
 const SUBJECT_DATA = [
-  { signature: 'LA-LC', name: 'Sozial- und Kulturanthropologie', count: 22812 },
-  { signature: 'MN-MS', name: 'Soziologie', count: 5114 },
-  { signature: 'B', name: 'Religion', count: 4764 },
-  { signature: 'C', name: 'Philosophie', count: 3463 },
-  { signature: 'MA-ML', name: 'Politologie', count: 2453 },
-  { signature: 'N', name: 'Geschichte', count: 2328 },
-  { signature: 'R', name: 'Geografie', count: 1902 },
-  { signature: 'P', name: 'Recht', count: 1873 },
-  { signature: 'Ref', name: 'Referenz', count: 1844 },
-  { signature: 'A', name: 'Allgemeines', count: 538 },
-  { signature: 'Q', name: 'Wirtschaftswissenschaften', count: 471 },
-  { signature: 'E', name: 'Allgemeine Sprachwissenschaft', count: 222 },
-  { signature: 'G', name: 'Germanistik', count: 98 },
-  { signature: 'LD-LZ', name: 'Archäologie, Musik und Kunst', count: 82 },
-  { signature: 'H', name: 'Anglistik', count: 79 },
-  { signature: 'I', name: 'Romanistik', count: 37 },
-  { signature: 'F', name: 'Klassische Philologie', count: 23 },
-  { signature: 'D', name: 'Pädagogik', count: 22 },
-  { signature: 'Z', name: 'Sonstiges', count: 18 },
-  { signature: 'W', name: 'Biologie', count: 10 },
-  { signature: 'MT-MZ', name: 'Gesundheit und Militär', count: 4 }
+  { signature: 'LA-LC', name: 'Sozial- und Kulturanthropologie', count: 22812 },
+  { signature: 'MN-MS', name: 'Soziologie', count: 5114 },
+  { signature: 'B', name: 'Religion', count: 4764 },
+  { signature: 'C', name: 'Philosophie', count: 3463 },
+  { signature: 'MA-ML', name: 'Politologie', count: 2453 },
+  { signature: 'N', name: 'Geschichte', count: 2328 },
+  { signature: 'R', name: 'Geografie', count: 1902 },
+  { signature: 'P', name: 'Recht', count: 1873 },
+  { signature: 'Ref', name: 'Referenz', count: 1844 },
+  { signature: 'A', name: 'Allgemeines', count: 538 },
+  { signature: 'Q', name: 'Wirtschaftswissenschaften', count: 471 },
+  { signature: 'E', name: 'Allgemeine Sprachwissenschaft', count: 222 },
+  { signature: 'G', name: 'Germanistik', count: 98 },
+  { signature: 'LD-LZ', name: 'Archäologie, Musik und Kunst', count: 82 },
+  { signature: 'H', name: 'Anglistik', count: 79 },
+  { signature: 'I', name: 'Romanistik', count: 37 },
+  { signature: 'F', name: 'Klassische Philologie', count: 23 },
+  { signature: 'D', name: 'Pädagogik', count: 22 },
+  { signature: 'Z', name: 'Sonstiges', count: 18 },
+  { signature: 'W', name: 'Biologie', count: 10 },
+  { signature: 'MT-MZ', name: 'Gesundheit und Militär', count: 4 }
 ];
 
 const OTHER_MEDIA_DATA = [
-  { name: 'Gebundene Zeitschriftenbände', count: 3561 }
+  { name: 'Gebundene Zeitschriftenbände', count: 3561 }
 ];
 
 // ===== BERECHNETE WERTE =====
@@ -261,81 +320,128 @@ const PHASE3_AVG = Math.round(PHASE3_DATA.reduce((sum, d) => sum + d.value, 0) /
 const AVG_PER_YEAR = Math.round(TOTAL_ACQUISITIONS / ACQUISITION_DATA.length);
 const MAX_VALUE = Math.max(...ACQUISITION_DATA.map(d => d.value));
 
-console.log('📊 Daten geladen:');
-console.log('📚 Bücher (Print):', TOTAL_BOOKS.toLocaleString('de-DE'));
-console.log('📖 Gesamtbestand:', TOTAL_COLLECTION.toLocaleString('de-DE'));
+console.log('📊 Dashboard initialized successfully');
+console.log('📚 Print books:', TOTAL_BOOKS.toLocaleString('de-DE'));
+console.log('📖 Total collection:', TOTAL_COLLECTION.toLocaleString('de-DE'));
 
-// ===== FUNKTIONEN =====
+// ===== UTILITY FUNCTIONS =====
+function announceToScreenReader(message) {
+  const announcement = document.createElement('div');
+  announcement.setAttribute('aria-live', 'polite');
+  announcement.setAttribute('aria-atomic', 'true');
+  announcement.style.position = 'absolute';
+  announcement.style.left = '-10000px';
+  announcement.style.width = '1px';
+  announcement.style.height = '1px';
+  announcement.style.overflow = 'hidden';
+  announcement.textContent = message;
+  document.body.appendChild(announcement);
+  setTimeout(() => document.body.removeChild(announcement), 1000);
+}
+
+// ===== CHART FUNCTIONS =====
 
 // --- Erwerbung (Chart 1) ---
 let chart1;
 function initChart1() {
-  const ctx = document.getElementById('acquisitionsChart').getContext('2d');
-  
-  if (chart1) { chart1.destroy(); }
+  const ctx = document.getElementById('acquisitionsChart').getContext('2d');
+  
+  if (chart1) { 
+    chart1.destroy(); 
+  }
 
-  const config = {
-    type: 'line',
-    data: {
-      labels: ACQUISITION_DATA.map(d => d.year),
-      datasets: [
-        {
-          label: 'MPI Geschichte (2000-2007): saturierte Bibliothek',
-          data: ACQUISITION_DATA.map(d => PHASE1_DATA.find(p => p.year === d.year)?.value || null),
-          borderColor: '#6c757d',
-          backgroundColor: '#6c757d',
-          borderWidth: 2,
-          pointRadius: 3,
-          spanGaps: false
-        },
-        {
-          label: 'MPI Diversity (2008-2020): Bibliothek im Aufbau',
-          data: ACQUISITION_DATA.map(d => PHASE2_DATA.find(p => p.year === d.year)?.value || null),
-          borderColor: '#28a745',
-          backgroundColor: '#28a745',
-          borderWidth: 2,
-          pointRadius: 3,
-          spanGaps: false
-        },
-        {
-          label: 'MPI Diversity (2021-2024): saturiert & nur 1 Abteilung',
-          data: ACQUISITION_DATA.map(d => PHASE3_DATA.find(p => p.year === d.year)?.value || null),
-          borderColor: '#dc3545',
-          backgroundColor: '#dc3545',
-          borderWidth: 2,
-          pointRadius: 3,
-          spanGaps: false
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        x: { title: { display: true, text: 'Jahr', font: { size: 12 } }, ticks: { font: { size: 10 } } },
-        y: { title: { display: true, text: 'Anzahl Erwerbungen', font: { size: 12 } }, beginAtZero: true, ticks: { font: { size: 10 } } }
-      },
-      plugins: { legend: { display: true, position: 'bottom', labels: { boxWidth: 15, padding: 10, font: { size: 10 }, usePointStyle: true } } },
-      interaction: { intersect: false, mode: 'index' }
-    }
-  };
-  chart1 = new Chart(ctx, config);
+  const config = {
+    type: 'line',
+    data: {
+      labels: ACQUISITION_DATA.map(d => d.year),
+      datasets: [
+        {
+          label: 'MPI Geschichte (2000-2007): saturierte Bibliothek',
+          data: ACQUISITION_DATA.map(d => PHASE1_DATA.find(p => p.year === d.year)?.value || null),
+          borderColor: '#6c757d',
+          backgroundColor: '#6c757d',
+          borderWidth: 2,
+          pointRadius: 3,
+          spanGaps: false
+        },
+        {
+          label: 'MPI Diversity (2008-2020): Bibliothek im Aufbau',
+          data: ACQUISITION_DATA.map(d => PHASE2_DATA.find(p => p.year === d.year)?.value || null),
+          borderColor: '#28a745',
+          backgroundColor: '#28a745',
+          borderWidth: 2,
+          pointRadius: 3,
+          spanGaps: false
+        },
+        {
+          label: 'MPI Diversity (2021-2024): saturiert & nur 1 Abteilung',
+          data: ACQUISITION_DATA.map(d => PHASE3_DATA.find(p => p.year === d.year)?.value || null),
+          borderColor: '#dc3545',
+          backgroundColor: '#dc3545',
+          borderWidth: 2,
+          pointRadius: 3,
+          spanGaps: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      accessibility: {
+        announceNewData: {
+          enabled: true
+        }
+      },
+      scales: {
+        x: { 
+          title: { display: true, text: 'Jahr', font: { size: 12 } }, 
+          ticks: { font: { size: 10 } } 
+        },
+        y: { 
+          title: { display: true, text: 'Anzahl Erwerbungen', font: { size: 12 } }, 
+          beginAtZero: true, 
+          ticks: { font: { size: 10 } } 
+        }
+      },
+      plugins: { 
+        legend: { 
+          display: true, 
+          position: 'bottom', 
+          labels: { 
+            boxWidth: 15, 
+            padding: 10, 
+            font: { size: 10 }, 
+            usePointStyle: true 
+          } 
+        } 
+      },
+      interaction: { intersect: false, mode: 'index' }
+    }
+  };
+  chart1 = new Chart(ctx, config);
+  announceToScreenReader('Erwerbungsdiagramm wurde geladen');
 }
 
 function updateAcquisitionStats() {
-  document.getElementById('totalAcquisitions').textContent = TOTAL_ACQUISITIONS.toLocaleString('de-DE');
-  document.getElementById('avgPerYear').textContent = AVG_PER_YEAR.toLocaleString('de-DE');
-  document.getElementById('maxValue').textContent = MAX_VALUE.toLocaleString('de-DE');
-  document.getElementById('phase1Avg').textContent = PHASE1_AVG.toLocaleString('de-DE');
-  document.getElementById('phase2Avg').textContent = PHASE2_AVG.toLocaleString('de-DE');
-  document.getElementById('phase3Avg').textContent = PHASE3_AVG.toLocaleString('de-DE');
+  document.getElementById('totalAcquisitions').textContent = TOTAL_ACQUISITIONS.toLocaleString('de-DE');
+  document.getElementById('avgPerYear').textContent = AVG_PER_YEAR.toLocaleString('de-DE');
+  document.getElementById('maxValue').textContent = MAX_VALUE.toLocaleString('de-DE');
+  document.getElementById('phase1Avg').textContent = PHASE1_AVG.toLocaleString('de-DE');
+  document.getElementById('phase2Avg').textContent = PHASE2_AVG.toLocaleString('de-DE');
+  document.getElementById('phase3Avg').textContent = PHASE3_AVG.toLocaleString('de-DE');
 }
 
 function downloadChart1() {
-  const link = document.createElement('a');
-  link.download = 'erwerbungen_2000-2024.png';
-  link.href = chart1.toBase64Image();
-  link.click();
+  try {
+    const link = document.createElement('a');
+    link.download = 'erwerbungen_2000-2024.png';
+    link.href = chart1.toBase64Image();
+    link.click();
+    announceToScreenReader('Download des Erwerbungsdiagramms gestartet');
+  } catch (error) {
+    console.error('Download failed:', error);
+    announceToScreenReader('Download fehlgeschlagen');
+  }
 }
 
 // --- Bestandsverteilung (Chart 2) ---
@@ -343,98 +449,136 @@ let chart2;
 let currentChartType2 = 'pie';
 
 const colors = [
-  '#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8', 
-  '#6f42c1', '#fd7e14', '#20c997', '#6c757d', '#e83e8c',
-  '#007bff80', '#28a74580', '#dc354580', '#ffc10780', '#17a2b880',
-  '#6f42c180', '#fd7e1480', '#20c99780', '#007bff40', '#28a74540', '#dc354540'
+  '#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8', 
+  '#6f42c1', '#fd7e14', '#20c997', '#6c757d', '#e83e8c',
+  '#007bff80', '#28a74580', '#dc354580', '#ffc10780', '#17a2b880',
+  '#6f42c180', '#fd7e1480', '#20c99780', '#007bff40', '#28a74540', '#dc354540'
 ];
 
 function initChart2(type = 'pie') {
-  const ctx = document.getElementById('subjectChart').getContext('2d');
-  
-  if (chart2) { chart2.destroy(); }
+  const ctx = document.getElementById('subjectChart').getContext('2d');
+  
+  if (chart2) { 
+    chart2.destroy(); 
+  }
 
-  currentChartType2 = type;
-  updateActiveButton2();
+  currentChartType2 = type;
+  updateActiveButton2();
 
-  const sortedData = [...SUBJECT_DATA].sort((a, b) => b.count - a.count);
-  const indexMapping = {};
-  SUBJECT_DATA.forEach((item, index) => {
-    indexMapping[`${item.signature}-${item.name}`] = index;
-  });
-  const colorsToUse = sortedData.map(item => {
-    const originalIndex = indexMapping[`${item.signature}-${item.name}`];
-    return colors[originalIndex];
-  });
+  const sortedData = [...SUBJECT_DATA].sort((a, b) => b.count - a.count);
+  const indexMapping = {};
+  SUBJECT_DATA.forEach((item, index) => {
+    indexMapping[`${item.signature}-${item.name}`] = index;
+  });
+  const colorsToUse = sortedData.map(item => {
+    const originalIndex = indexMapping[`${item.signature}-${item.name}`];
+    return colors[originalIndex];
+  });
 
-  const config = {
-    type: type,
-    data: {
-      labels: sortedData.map(d => `${d.signature} - ${d.name}`),
-      datasets: [{
-        label: 'Anzahl Bücher',
-        data: sortedData.map(d => d.count),
-        backgroundColor: colorsToUse,
-        borderColor: colorsToUse.map(color => color.replace('80', '').replace('40', '')),
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      layout: { padding: { bottom: type === 'bar' ? 60 : 20, left: 10, right: 10, top: 10 } },
-      plugins: {
-        legend: {
-          display: type === 'pie',
-          position: 'bottom',
-          labels: { boxWidth: 12, padding: 8, font: { size: 9 }, usePointStyle: true }
-        },
-        tooltip: {
-          callbacks: {
-            title: context => null,
-            label: context => {
-              const count = type === 'bar' ? context.parsed.y : context.parsed;
-              const percentage = ((count / TOTAL_BOOKS) * 100).toFixed(1);
-              const item = sortedData[context.dataIndex];
-              return `${item.signature} - ${item.name}: ${count.toLocaleString('de-DE')} (${percentage}%)`;
-            }
-          }
-        }
-      },
-      scales: type === 'bar' ? {
-        x: {
-          title: { display: true, text: 'Signaturgruppe', font: { size: 12 } },
-          ticks: {
-            maxRotation: 45,
-            minRotation: 45,
-            font: { size: 8 },
-            callback: (value, index) => {
-              const item = sortedData[index];
-              if (item) { const label = `${item.signature} - ${item.name}`; return label.length > 25 ? label.substr(0, 22) + '...' : label; }
-              return value;
-            }
-          }
-        },
-        y: { title: { display: true, text: 'Anzahl Bücher', font: { size: 12 } }, beginAtZero: true, ticks: { font: { size: 10 } } }
-      } : {}
-    }
-  };
-  chart2 = new Chart(ctx, config);
+  const config = {
+    type: type,
+    data: {
+      labels: sortedData.map(d => `${d.signature} - ${d.name}`),
+      datasets: [{
+        label: 'Anzahl Bücher',
+        data: sortedData.map(d => d.count),
+        backgroundColor: colorsToUse,
+        borderColor: colorsToUse.map(color => color.replace('80', '').replace('40', '')),
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      accessibility: {
+        announceNewData: {
+          enabled: true
+        }
+      },
+      layout: { padding: { bottom: type === 'bar' ? 60 : 20, left: 10, right: 10, top: 10 } },
+      plugins: {
+        legend: {
+          display: type === 'pie',
+          position: 'bottom',
+          labels: { boxWidth: 12, padding: 8, font: { size: 9 }, usePointStyle: true }
+        },
+        tooltip: {
+          callbacks: {
+            title: context => null,
+            label: context => {
+              const count = type === 'bar' ? context.parsed.y : context.parsed;
+              const percentage = ((count / TOTAL_BOOKS) * 100).toFixed(1);
+              const item = sortedData[context.dataIndex];
+              return `${item.signature} - ${item.name}: ${count.toLocaleString('de-DE')} (${percentage}%)`;
+            }
+          }
+        }
+      },
+      scales: type === 'bar' ? {
+        x: {
+          title: { display: true, text: 'Signaturgruppe', font: { size: 12 } },
+          ticks: {
+            maxRotation: 45,
+            minRotation: 45,
+            font: { size: 8 },
+            callback: (value, index) => {
+              const item = sortedData[index];
+              if (item) { 
+                const label = `${item.signature} - ${item.name}`; 
+                return label.length > 25 ? label.substr(0, 22) + '...' : label; 
+              }
+              return value;
+            }
+          }
+        },
+        y: { 
+          title: { display: true, text: 'Anzahl Bücher', font: { size: 12 } }, 
+          beginAtZero: true, 
+          ticks: { font: { size: 10 } } 
+        }
+      } : {}
+    }
+  };
+  chart2 = new Chart(ctx, config);
+  announceToScreenReader(`Bestandsdiagramm als ${type === 'pie' ? 'Kreisdiagramm' : 'Balkendiagramm'} geladen`);
 }
 
-function changeChartType2(type) { initChart2(type); }
+function changeChartType2(type) { 
+  initChart2(type); 
+}
+
 function updateActiveButton2() {
-  document.getElementById('pieBtn2').style.background = currentChartType2 === 'pie' ? '#28a745' : '#007bff';
-  document.getElementById('barBtn2').style.background = currentChartType2 === 'bar' ? '#28a745' : '#007bff';
+  const pieBtn = document.getElementById('pieBtn2');
+  const barBtn = document.getElementById('barBtn2');
+  
+  if (currentChartType2 === 'pie') {
+    pieBtn.style.background = '#28a745';
+    barBtn.style.background = '#007bff';
+    pieBtn.setAttribute('aria-pressed', 'true');
+    barBtn.setAttribute('aria-pressed', 'false');
+  } else {
+    pieBtn.style.background = '#007bff';
+    barBtn.style.background = '#28a745';
+    pieBtn.setAttribute('aria-pressed', 'false');
+    barBtn.setAttribute('aria-pressed', 'true');
+  }
 }
+
 function downloadChart2() {
-  const link = document.createElement('a');
-  link.download = 'bestand_sachgruppen_2025.png';
-  link.href = chart2.toBase64Image();
-  link.click();
+  try {
+    const link = document.createElement('a');
+    link.download = 'bestand_sachgruppen_2025.png';
+    link.href = chart2.toBase64Image();
+    link.click();
+    announceToScreenReader('Download des Bestandsdiagramms gestartet');
+  } catch (error) {
+    console.error('Download failed:', error);
+    announceToScreenReader('Download fehlgeschlagen');
+  }
 }
+
 function updateSubjectStats() {
-  document.getElementById('totalBooks').textContent = TOTAL_BOOKS.toLocaleString('de-DE');
+  document.getElementById('totalBooks').textContent = TOTAL_BOOKS.toLocaleString('de-DE');
 }
 
 // --- Gesamtbestand (Chart 3) ---
@@ -445,79 +589,122 @@ const collectionColors = ['#007bff', '#28a745'];
 const collectionData = [{ name: 'Bücher', count: TOTAL_BOOKS }, ...OTHER_MEDIA_DATA];
 
 function initChart3(type = 'pie') {
-  const ctx = document.getElementById('totalCollectionChart').getContext('2d');
-  
-  if (chart3) { chart3.destroy(); }
+  const ctx = document.getElementById('totalCollectionChart').getContext('2d');
+  
+  if (chart3) { 
+    chart3.destroy(); 
+  }
 
-  currentChartType3 = type;
-  updateActiveButton3();
+  currentChartType3 = type;
+  updateActiveButton3();
 
-  const config = {
-    type: type,
-    data: {
-      labels: collectionData.map(d => d.name),
-      datasets: [{
-        label: 'Anzahl Medien',
-        data: collectionData.map(d => d.count),
-        backgroundColor: collectionColors,
-        borderColor: collectionColors,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      layout: { padding: { bottom: type === 'bar' ? 40 : 20, left: 10, right: 10, top: 10 } },
-      plugins: {
-        legend: {
-          display: type === 'pie',
-          position: 'bottom',
-          labels: { boxWidth: 15, padding: 15, font: { size: 12 }, usePointStyle: true }
-        },
-        tooltip: {
-          callbacks: {
-            title: context => null,
-            label: context => {
-              const count = type === 'bar' ? context.parsed.y : context.parsed;
-              const percentage = ((count / TOTAL_COLLECTION) * 100).toFixed(1);
-              const item = collectionData[context.dataIndex];
-              return `${item.name}: ${count.toLocaleString('de-DE')} (${percentage}%)`;
-            }
-          }
-        }
-      },
-      scales: type === 'bar' ? {
-        x: { title: { display: true, text: 'Medientyp', font: { size: 12 } }, ticks: { font: { size: 11 } } },
-        y: { title: { display: true, text: 'Anzahl Medien', font: { size: 12 } }, beginAtZero: true, ticks: { font: { size: 10 } } }
-      } : {}
-    }
-  };
-  chart3 = new Chart(ctx, config);
+  const config = {
+    type: type,
+    data: {
+      labels: collectionData.map(d => d.name),
+      datasets: [{
+        label: 'Anzahl Medien',
+        data: collectionData.map(d => d.count),
+        backgroundColor: collectionColors,
+        borderColor: collectionColors,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      accessibility: {
+        announceNewData: {
+          enabled: true
+        }
+      },
+      layout: { padding: { bottom: type === 'bar' ? 40 : 20, left: 10, right: 10, top: 10 } },
+      plugins: {
+        legend: {
+          display: type === 'pie',
+          position: 'bottom',
+          labels: { boxWidth: 15, padding: 15, font: { size: 12 }, usePointStyle: true }
+        },
+        tooltip: {
+          callbacks: {
+            title: context => null,
+            label: context => {
+              const count = type === 'bar' ? context.parsed.y : context.parsed;
+              const percentage = ((count / TOTAL_COLLECTION) * 100).toFixed(1);
+              const item = collectionData[context.dataIndex];
+              return `${item.name}: ${count.toLocaleString('de-DE')} (${percentage}%)`;
+            }
+          }
+        }
+      },
+      scales: type === 'bar' ? {
+        x: { 
+          title: { display: true, text: 'Medientyp', font: { size: 12 } }, 
+          ticks: { font: { size: 11 } } 
+        },
+        y: { 
+          title: { display: true, text: 'Anzahl Medien', font: { size: 12 } }, 
+          beginAtZero: true, 
+          ticks: { font: { size: 10 } } 
+        }
+      } : {}
+    }
+  };
+  chart3 = new Chart(ctx, config);
+  announceToScreenReader(`Gesamtbestandsdiagramm als ${type === 'pie' ? 'Kreisdiagramm' : 'Balkendiagramm'} geladen`);
 }
 
-function changeChartType3(type) { initChart3(type); }
+function changeChartType3(type) { 
+  initChart3(type); 
+}
+
 function updateActiveButton3() {
-  document.getElementById('pieBtn3').style.background = currentChartType3 === 'pie' ? '#28a745' : '#007bff';
-  document.getElementById('barBtn3').style.background = currentChartType3 === 'bar' ? '#28a745' : '#007bff';
-}
-function downloadChart3() {
-  const link = document.createElement('a');
-  link.download = 'gesamtbestand_2025.png';
-  link.href = chart3.toBase64Image();
-  link.click();
-}
-function updateCollectionStats() {
-  document.getElementById('totalCollection').textContent = TOTAL_COLLECTION.toLocaleString('de-DE');
+  const pieBtn = document.getElementById('pieBtn3');
+  const barBtn = document.getElementById('barBtn3');
+  
+  if (currentChartType3 === 'pie') {
+    pieBtn.style.background = '#28a745';
+    barBtn.style.background = '#007bff';
+    pieBtn.setAttribute('aria-pressed', 'true');
+    barBtn.setAttribute('aria-pressed', 'false');
+  } else {
+    pieBtn.style.background = '#007bff';
+    barBtn.style.background = '#28a745';
+    pieBtn.setAttribute('aria-pressed', 'false');
+    barBtn.setAttribute('aria-pressed', 'true');
+  }
 }
 
-// --- FUNKTIONEN ZUR TABELLENERSTELLUNG ---
+function downloadChart3() {
+  try {
+    const link = document.createElement('a');
+    link.download = 'gesamtbestand_2025.png';
+    link.href = chart3.toBase64Image();
+    link.click();
+    announceToScreenReader('Download des Gesamtbestandsdiagramms gestartet');
+  } catch (error) {
+    console.error('Download failed:', error);
+    announceToScreenReader('Download fehlgeschlagen');
+  }
+}
+
+function updateCollectionStats() {
+  document.getElementById('totalCollection').textContent = TOTAL_COLLECTION.toLocaleString('de-DE');
+}
+
+// --- TABLE GENERATION FUNCTIONS ---
 
 function generateTable1() {
-  const data = ACQUISITION_DATA.map(d => `<tr><td>${d.year}</td><td>${d.value.toLocaleString('de-DE')}</td></tr>`).join('');
+  const data = ACQUISITION_DATA.map(d => 
+    `<tr><td>${d.year}</td><td>${d.value.toLocaleString('de-DE')}</td></tr>`
+  ).join('');
   return `
-    <table class="table table-striped table-hover" data-quarto-disable-processing="true">
+    <table class="table table-striped table-hover" data-quarto-disable-processing="true" role="table" aria-label="Detaildaten der Erwerbungen nach Jahren">
       <thead>
-        <tr><th>Jahr</th><th>Anzahl der Erwerbungen</th></tr>
+        <tr>
+          <th scope="col">Jahr</th>
+          <th scope="col">Anzahl der Erwerbungen</th>
+        </tr>
       </thead>
       <tbody>
         ${data}
@@ -531,13 +718,23 @@ function generateTable2() {
     .sort((a, b) => b.count - a.count)
     .map(d => {
       const percentage = ((d.count / TOTAL_BOOKS) * 100).toFixed(1);
-      return `<tr><td>${d.signature}</td><td>${d.name}</td><td>${d.count.toLocaleString('de-DE')}</td><td>${percentage}%</td></tr>`;
+      return `<tr>
+        <td>${d.signature}</td>
+        <td>${d.name}</td>
+        <td>${d.count.toLocaleString('de-DE')}</td>
+        <td>${percentage}%</td>
+      </tr>`;
     })
     .join('');
   return `
-    <table class="table table-striped table-hover" data-quarto-disable-processing="true">
+    <table class="table table-striped table-hover" data-quarto-disable-processing="true" role="table" aria-label="Detaillierte Bestandsaufschlüsselung nach Fachgebieten">
       <thead>
-        <tr><th>Signatur</th><th>Fachgebiet</th><th>Anzahl</th><th>Anteil</th></tr>
+        <tr>
+          <th scope="col">Signatur</th>
+          <th scope="col">Fachgebiet</th>
+          <th scope="col">Anzahl</th>
+          <th scope="col">Anteil</th>
+        </tr>
       </thead>
       <tbody>
         ${data}
@@ -549,12 +746,20 @@ function generateTable2() {
 function generateTable3() {
   const data = collectionData.map(d => {
     const percentage = ((d.count / TOTAL_COLLECTION) * 100).toFixed(1);
-    return `<tr><td>${d.name}</td><td>${d.count.toLocaleString('de-DE')}</td><td>${percentage}%</td></tr>`;
+    return `<tr>
+      <td>${d.name}</td>
+      <td>${d.count.toLocaleString('de-DE')}</td>
+      <td>${percentage}%</td>
+    </tr>`;
   }).join('');
   return `
-    <table class="table table-striped table-hover" data-quarto-disable-processing="true">
+    <table class="table table-striped table-hover" data-quarto-disable-processing="true" role="table" aria-label="Gesamtbestand nach Medientypen">
       <thead>
-        <tr><th>Medientyp</th><th>Anzahl</th><th>Anteil</th></tr>
+        <tr>
+          <th scope="col">Medientyp</th>
+          <th scope="col">Anzahl</th>
+          <th scope="col">Anteil</th>
+        </tr>
       </thead>
       <tbody>
         ${data}
@@ -564,19 +769,94 @@ function generateTable3() {
 }
 
 function initTables() {
-  document.querySelector('#details1 .details-content').innerHTML = generateTable1();
-  document.querySelector('#details2 .details-content').innerHTML = generateTable2();
-  document.querySelector('#details3 .details-content').innerHTML = generateTable3();
+  try {
+    document.querySelector('#details1 .details-content').innerHTML = generateTable1();
+    document.querySelector('#details2 .details-content').innerHTML = generateTable2();
+    document.querySelector('#details3 .details-content').innerHTML = generateTable3();
+    console.log('📋 Tables initialized successfully');
+  } catch (error) {
+    console.error('Error initializing tables:', error);
+  }
 }
 
-// Initialisiere alle Diagramme, Statistiken und Tabellen
-window.addEventListener('load', function() {
-  updateAcquisitionStats();
-  updateSubjectStats();
-  updateCollectionStats();
-  initChart1();
-  initChart2();
-  initChart3();
-  initTables();
+// --- ERROR HANDLING ---
+function handleChartError(chartName, error) {
+  console.error(`Error in ${chartName}:`, error);
+  announceToScreenReader(`Fehler beim Laden des ${chartName}-Diagramms`);
+}
+
+// --- KEYBOARD NAVIGATION SUPPORT ---
+document.addEventListener('keydown', function(event) {
+  // Add keyboard support for chart type switching
+  if (event.target.matches('button[id*="Btn"]') && (event.key === 'Enter' || event.key === ' ')) {
+    event.preventDefault();
+    event.target.click();
+  }
 });
+
+// --- INITIALIZATION ---
+function initializeDashboard() {
+  try {
+    console.log('🚀 Initializing Library Statistics Dashboard...');
+    
+    // Update all statistics
+    updateAcquisitionStats();
+    updateSubjectStats();
+    updateCollectionStats();
+    
+    // Initialize all charts
+    initChart1();
+    initChart2();
+    initChart3();
+    
+    // Initialize tables
+    initTables();
+    
+    // Set initial button states
+    updateActiveButton2();
+    updateActiveButton3();
+    
+    console.log('✅ Dashboard initialization complete');
+    announceToScreenReader('Dashboard wurde erfolgreich geladen');
+    
+  } catch (error) {
+    console.error('❌ Dashboard initialization failed:', error);
+    announceToScreenReader('Fehler beim Laden des Dashboards');
+  }
+}
+
+// Initialize when DOM is fully loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeDashboard);
+} else {
+  initializeDashboard();
+}
+
+// Also initialize on window load as fallback
+window.addEventListener('load', function() {
+  // Double-check that everything is initialized
+  if (!chart1 || !chart2 || !chart3) {
+    console.log('🔄 Re-initializing charts...');
+    initializeDashboard();
+  }
+});
+
+// Add resize handler for responsive charts
+window.addEventListener('resize', function() {
+  setTimeout(() => {
+    if (chart1) chart1.resize();
+    if (chart2) chart2.resize();
+    if (chart3) chart3.resize();
+  }, 100);
+});
+
 </script>
+```
+
+---
+
+**Über dieses Dashboard**
+
+**Erstellt von:** [Thomas Gerdes](https://thomasgerdes.de)  
+**Repository:** [GitHub](https://github.com/thomasgerdes/library-statistics)  
+**Datenstand:** August 2025  
