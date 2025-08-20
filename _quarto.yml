@@ -1,0 +1,61 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "MPI Bibliothek Dashboard"
+  description: "Interaktives Dashboard für Erwerbungen und Bestandsanalyse der MPI Bibliothek 2000-2024"
+  
+  navbar:
+    background: primary
+    search: false
+    left:
+      - href: index.qmd
+        text: "📊 Übersicht"
+      - href: erwerbungen.qmd  
+        text: "📈 Erwerbungen"
+      - href: bestand.qmd
+        text: "📚 Bestand"
+    
+    right:
+      - icon: github
+        href: https://github.com/thomasgerdes/library-statistics
+        aria-label: "GitHub Repository"
+
+  sidebar: false
+  
+  page-footer:
+    left: "© 2025 [Thomas Gerdes](https://thomasgerdes.de) - MPI Library Dashboard"
+    right: 
+      - icon: github
+        href: https://github.com/thomasgerdes/library-statistics
+        aria-label: "GitHub"
+
+format:
+  html:
+    theme: cosmo
+    css: shared/styles.css
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    code-fold: true
+    code-tools: false
+    embed-resources: false
+    page-layout: full
+    lang: de
+    
+    include-in-header:
+      - text: |
+          <meta name="author" content="Thomas Gerdes">
+          <meta name="description" content="Interactive dashboard for MPI library statistics and analysis">
+          <meta name="keywords" content="library, statistics, dashboard, acquisitions, collection, MPI">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+          <title>MPI Bibliothek Dashboard</title>
+
+execute:
+  echo: false
+  warning: false
+  error: false
+
+editor: visual

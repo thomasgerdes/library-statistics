@@ -1,0 +1,611 @@
+---
+title: "Erwerbungen"
+subtitle: "Print- und Ebook-Erwerbungen 2000-2024"
+author: "Thomas Gerdes"
+date: "2025-08-15"
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    interactive: true
+    embed-resources: false
+    page-layout: full
+    lang: de
+---
+
+<div style="height: 40px;"></div>
+
+```{=html}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="shared/data.js"></script>
+<script src="shared/functions.js"></script>
+
+<style>
+/* CSS für alle verwendeten Klassen */
+.dashboard-nav {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dashboard-nav a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 5px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard-nav a:hover {
+  background: #0056b3;
+  color: white;
+}
+
+.dashboard-nav a.active {
+  background: #28a745;
+}
+
+.chart-container {
+  background: white;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.chart-title {
+  color: #333;
+  text-align: center;
+  margin: 10px 0 5px 0;
+  font-size: 24px;
+}
+
+.info-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.info-box {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  flex: 1 1 200px;
+  min-width: 200px;
+  max-width: 250px;
+}
+
+.info-box-value {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info-box-label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 3px;
+}
+
+.info-box.blue { border-left: 3px solid #007bff; }
+.info-box.blue .info-box-value { color: #007bff; }
+.info-box.gray { border-left: 3px solid #6c757d; }
+.info-box.gray .info-box-value { color: #6c757d; }
+.info-box.green { border-left: 3px solid #28a745; }
+.info-box.green .info-box-value { color: #28a745; }
+.info-box.red { border-left: 3px solid #dc3545; }
+.info-box.red .info-box-value { color: #dc3545; }
+
+.dashboard-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard-button:hover {
+  opacity: 0.9;
+}
+</style>
+
+```
+
+## Print-Bucherwerbungen
+
+```{=html}
+<!-- Print-Bücher Erwerbungen -->
+<div class="chart-container">
+  <h2 class="chart-title">Zuwachs Bestand 2000-2024</h2>
+  
+  <div class="info-box-container" style="margin: 15px 0;">
+    <div class="info-box blue">
+      <div class="info-box-value" id="totalAcquisitions" aria-live="polite">-</div>
+      <div class="info-box-label">Gesamterwerbungen</div>
+    </div>
+    <div class="info-box blue">
+      <div class="info-box-value" id="avgPerYear" aria-live="polite">-</div>
+      <div class="info-box-label">Durchschnitt/Jahr</div>
+    </div>
+    <div class="info-box blue">
+      <div class="info-box-value" id="maxValue" aria-live="polite">-</div>
+      <div class="info-box-label">Höchstwert</div>
+    </div>
+  </div>
+
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button id="lineBtn" onclick="changeChartType('line')" 
+            aria-label="Wechsel zu Liniendiagramm für Erwerbungen"
+            class="dashboard-button" 
+            style="background: #28a745;">Liniendiagramm</button>
+    <button id="barBtn" onclick="changeChartType('bar')" 
+            aria-label="Wechsel zu Balkendiagramm für Erwerbungen"
+            class="dashboard-button" 
+            style="background: #007bff;">Balkendiagramm</button>
+    <button onclick="downloadChart1()" 
+            aria-label="Diagramm der Erwerbungen als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
+
+  <div style="position: relative; height: 600px; margin: 10px 0;">
+    <canvas id="acquisitionsChart" role="img" aria-label="Diagramm der Bucherwerbungen von 2000 bis 2024"></canvas>
+  </div>
+  
+  <div class="info-box-container" style="margin: 20px 0;">
+    <div class="info-box gray">
+      <div class="info-box-value" id="phase1Avg" aria-live="polite">-</div>
+      <div class="info-box-label">⌀ Phase 1 (2000-2007)</div>
+    </div>
+    <div class="info-box green">
+      <div class="info-box-value" id="phase2Avg" aria-live="polite">-</div>
+      <div class="info-box-label">⌀ Phase 2 (2008-2020)</div>
+    </div>
+    <div class="info-box red">
+      <div class="info-box-value" id="phase3Avg" aria-live="polite">-</div>
+      <div class="info-box-label">⌀ Phase 3 (2021-2024)</div>
+    </div>
+  </div>
+</div>
+
+<details id="details1">
+<summary>📊 Detaildaten zur Erwerbungsentwicklung (Print)</summary>
+<div class="details-content"></div>
+</details>
+```
+
+<div style="height: 20px;"></div>
+
+## Ebook-Erwerbungen
+
+```{=html}
+<div style="height: 80px;"></div>
+
+<!-- Ebook Erwerbungen -->
+<div class="chart-container">
+  <h2 class="chart-title">Zuwachs Ebooks 2000-2024</h2>
+  
+  <div class="info-box-container" style="margin: 15px 0;">
+    <div class="info-box blue">
+      <div class="info-box-value" id="totalAcquisitionsEbooks" aria-live="polite">-</div>
+      <div class="info-box-label">Gesamterwerbungen</div>
+    </div>
+    <div class="info-box blue">
+      <div class="info-box-value" id="avgPerYearEbooks" aria-live="polite">-</div>
+      <div class="info-box-label">Durchschnitt/Jahr</div>
+    </div>
+    <div class="info-box blue">
+      <div class="info-box-value" id="maxValueEbooks" aria-live="polite">-</div>
+      <div class="info-box-label">Höchstwert</div>
+    </div>
+  </div>
+
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button id="lineBtnEbooks" onclick="changeChartTypeEbooks('line')" 
+            aria-label="Wechsel zu Liniendiagramm für Ebook-Erwerbungen"
+            class="dashboard-button" 
+            style="background: #28a745;">Liniendiagramm</button>
+    <button id="barBtnEbooks" onclick="changeChartTypeEbooks('bar')" 
+            aria-label="Wechsel zu Balkendiagramm für Ebook-Erwerbungen"
+            class="dashboard-button" 
+            style="background: #007bff;">Balkendiagramm</button>
+    <button onclick="downloadChartEbooks()" 
+            aria-label="Diagramm der Ebook-Erwerbungen als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
+
+  <div style="position: relative; height: 600px; margin: 10px 0;">
+    <canvas id="acquisitionsChartEbooks" role="img" aria-label="Diagramm der Ebook-Erwerbungen von 2000 bis 2024"></canvas>
+  </div>
+</div>
+
+<details id="detailsEbooks">
+<summary>📊 Detaildaten zur Ebook-Erwerbungsentwicklung</summary>
+<div class="details-content"></div>
+</details>
+```
+
+<div style="height: 20px;"></div>
+
+## Wachstumsanalyse
+
+```{=html}
+<div style="height: 80px;"></div>
+
+<!-- Wachstumsanalyse -->
+<div class="chart-container">
+  <h2 class="chart-title">Wachstumsanalyse</h2>
+  <p style="text-align: center; color: #666; margin: 0 0 20px 0; font-size: 16px;">Print-Bücher 2000-2024</p>
+  
+  <div class="info-box-container" style="margin: 15px 0;">
+    <div class="info-box green">
+      <div class="info-box-value" id="avgGrowthRate" aria-live="polite">-</div>
+      <div class="info-box-label">⌀ Wachstumsrate (%)</div>
+    </div>
+    <div class="info-box green">
+      <div class="info-box-value" id="maxGrowthRate" aria-live="polite">-</div>
+      <div class="info-box-label">Höchste Wachstumsrate (%)</div>
+    </div>
+    <div class="info-box green">
+      <div class="info-box-value" id="totalGrowthYears" aria-live="polite">-</div>
+      <div class="info-box-label">Jahre mit Wachstum</div>
+    </div>
+  </div>
+
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button id="lineBtnGrowth" onclick="changeChartTypeGrowth('line')" 
+            aria-label="Wechsel zu Liniendiagramm für Bestandswachstum"
+            class="dashboard-button" 
+            style="background: #28a745;">Liniendiagramm</button>
+    <button id="barBtnGrowth" onclick="changeChartTypeGrowth('bar')" 
+            aria-label="Wechsel zu Balkendiagramm für Bestandswachstum"
+            class="dashboard-button" 
+            style="background: #007bff;">Balkendiagramm</button>
+    <button onclick="downloadChartGrowth()" 
+            aria-label="Diagramm des Bestandswachstums als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
+
+  <div style="position: relative; height: 600px; margin: 10px 0;">
+    <canvas id="growthChart" role="img" aria-label="Diagramm des jährlichen Bestandswachstums von 2000 bis 2024"></canvas>
+  </div>
+</div>
+
+<details id="detailsGrowth">
+<summary>📊 Detaildaten zum Bestandswachstum</summary>
+<div class="details-content"></div>
+</details>
+
+<div style="height: 100px;"></div>
+
+<script>
+// Der komplette JavaScript-Code bleibt unverändert aus der funktionierenden Version
+// Check if required data is loaded
+if (typeof ACQUISITION_DATA === 'undefined') {
+  console.error('❌ Data not loaded! Please check shared/data.js');
+  document.body.innerHTML = '<div style="text-align: center; padding: 50px;"><h2>Fehler: Daten nicht gefunden</h2><p>Bitte prüfen Sie, ob die Datei shared/data.js korrekt geladen wurde.</p></div>';
+}
+
+// Chart instances
+let chart1, chartEbooks, chartGrowth;
+let currentChartType = 'line';
+let currentChartTypeEbooks = 'line';
+let currentChartTypeGrowth = 'line';
+
+// ===== PRINT ACQUISITIONS CHART =====
+function initChart1(type = 'line') {
+  const ctx = document.getElementById('acquisitionsChart');
+  if (!ctx) {
+    console.error('❌ Canvas element acquisitionsChart not found');
+    return;
+  }
+  
+  if (chart1) { 
+    chart1.destroy(); 
+  }
+
+  currentChartType = type;
+  updateActiveButtons(type, 'lineBtn', 'barBtn');
+
+  const config = getStandardChartConfig(type, {
+    labels: ACQUISITION_DATA.map(d => d.year),
+    datasets: [
+      {
+        label: 'MPI Geschichte (2000-2007): saturierte Bibliothek',
+        data: ACQUISITION_DATA.map(d => PHASE1_DATA.find(p => p.year === d.year)?.value || null),
+        borderColor: '#6c757d',
+        backgroundColor: type === 'bar' ? '#6c757d' : '#6c757d',
+        borderWidth: 2,
+        pointRadius: type === 'line' ? 3 : 0,
+        spanGaps: false
+      },
+      {
+        label: 'MPI Diversity (2008-2020): Bibliothek im Aufbau',
+        data: ACQUISITION_DATA.map(d => PHASE2_DATA.find(p => p.year === d.year)?.value || null),
+        borderColor: '#28a745',
+        backgroundColor: type === 'bar' ? '#28a745' : '#28a745',
+        borderWidth: 2,
+        pointRadius: type === 'line' ? 3 : 0,
+        spanGaps: false
+      },
+      {
+        label: 'MPI Diversity (2021-2024): saturiert & nur 1 Abteilung',
+        data: ACQUISITION_DATA.map(d => PHASE3_DATA.find(p => p.year === d.year)?.value || null),
+        borderColor: '#dc3545',
+        backgroundColor: type === 'bar' ? '#dc3545' : '#dc3545',
+        borderWidth: 2,
+        pointRadius: type === 'line' ? 3 : 0,
+        spanGaps: false
+      }
+    ]
+  }, {
+    scales: {
+      y: { 
+        title: { display: true, text: 'Anzahl Erwerbungen', font: { size: 12 } }
+      }
+    }
+  });
+  
+  chart1 = new Chart(ctx.getContext('2d'), config);
+  announceToScreenReader(`Erwerbungsdiagramm als ${type === 'line' ? 'Liniendiagramm' : 'Balkendiagramm'} geladen`);
+}
+
+function changeChartType(type) { 
+  initChart1(type); 
+}
+
+function downloadChart1() {
+  downloadChart(chart1, 'erwerbungen_2000-2024.png', 'Erwerbungsdiagramm');
+}
+
+// ===== EBOOK ACQUISITIONS CHART =====
+function initChartEbooks(type = 'line') {
+  const ctx = document.getElementById('acquisitionsChartEbooks');
+  if (!ctx) {
+    console.error('❌ Canvas element acquisitionsChartEbooks not found');
+    return;
+  }
+  
+  if (chartEbooks) { 
+    chartEbooks.destroy(); 
+  }
+
+  currentChartTypeEbooks = type;
+  updateActiveButtons(type, 'lineBtnEbooks', 'barBtnEbooks');
+
+  const config = getStandardChartConfig(type, {
+    labels: EBOOK_ACQUISITION_DATA.map(d => d.year),
+    datasets: [
+      {
+        label: 'Ebook-Erwerbungen',
+        data: EBOOK_ACQUISITION_DATA.map(d => d.value),
+        borderColor: '#007bff',
+        backgroundColor: type === 'bar' ? '#007bff' : '#007bff20',
+        borderWidth: 3,
+        pointRadius: type === 'line' ? 4 : 0,
+        fill: type === 'line'
+      }
+    ]
+  }, {
+    scales: {
+      y: { 
+        title: { display: true, text: 'Anzahl Ebook-Erwerbungen', font: { size: 12 } }
+      }
+    }
+  });
+  
+  chartEbooks = new Chart(ctx.getContext('2d'), config);
+  announceToScreenReader(`Ebook-Erwerbungsdiagramm als ${type === 'line' ? 'Liniendiagramm' : 'Balkendiagramm'} geladen`);
+}
+
+function changeChartTypeEbooks(type) { 
+  initChartEbooks(type); 
+}
+
+function downloadChartEbooks() {
+  downloadChart(chartEbooks, 'ebook_erwerbungen_2000-2024.png', 'Ebook-Erwerbungsdiagramm');
+}
+
+// ===== GROWTH RATE CHART =====
+function initChartGrowth(type = 'line') {
+  const ctx = document.getElementById('growthChart');
+  if (!ctx) {
+    console.error('❌ Canvas element growthChart not found');
+    return;
+  }
+  
+  if (chartGrowth) { 
+    chartGrowth.destroy(); 
+  }
+
+  currentChartTypeGrowth = type;
+  updateActiveButtons(type, 'lineBtnGrowth', 'barBtnGrowth');
+
+  const config = getStandardChartConfig(type, {
+    labels: STOCK_GROWTH_RATE_DATA.map(d => d.year),
+    datasets: [
+      {
+        label: 'Wachstumsrate (%)',
+        data: STOCK_GROWTH_RATE_DATA.map(d => d.growth),
+        borderColor: '#28a745',
+        backgroundColor: type === 'bar' ? '#28a745' : '#28a74520',
+        borderWidth: 3,
+        pointRadius: type === 'line' ? 4 : 0,
+        fill: type === 'line'
+      }
+    ]
+  }, {
+    scales: {
+      y: { 
+        title: { display: true, text: 'Wachstumsrate (%)', font: { size: 12 } },
+        beginAtZero: true
+      }
+    },
+    plugins: {
+      legend: { 
+        display: true, 
+        position: 'bottom', 
+        labels: { 
+          boxWidth: 15, 
+          padding: 10, 
+          font: { size: 10 }, 
+          usePointStyle: true 
+        } 
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const dataPoint = STOCK_GROWTH_RATE_DATA[context.dataIndex];
+            return [
+              `Wachstumsrate: ${dataPoint.growth}%`,
+              `Erwerbungen: ${formatNumber(dataPoint.acquisitions)}`,
+              `Jahresendbestand: ${formatNumber(dataPoint.endOfYearStock)}`
+            ];
+          }
+        }
+      }
+    }
+  });
+  
+  chartGrowth = new Chart(ctx.getContext('2d'), config);
+  announceToScreenReader(`Bestandswachstumsdiagramm als ${type === 'line' ? 'Liniendiagramm' : 'Balkendiagramm'} geladen`);
+}
+
+function changeChartTypeGrowth(type) { 
+  initChartGrowth(type); 
+}
+
+function downloadChartGrowth() {
+  downloadChart(chartGrowth, 'bestandswachstum_2000-2024.png', 'Bestandswachstumsdiagramm');
+}
+
+// ===== UPDATE STATISTICS =====
+function updateAcquisitionStats() {
+  document.getElementById('totalAcquisitions').textContent = formatNumber(TOTAL_ACQUISITIONS);
+  document.getElementById('avgPerYear').textContent = formatNumber(AVG_PER_YEAR);
+  document.getElementById('maxValue').textContent = formatNumber(MAX_VALUE);
+  document.getElementById('phase1Avg').textContent = formatNumber(PHASE1_AVG);
+  document.getElementById('phase2Avg').textContent = formatNumber(PHASE2_AVG);
+  document.getElementById('phase3Avg').textContent = formatNumber(PHASE3_AVG);
+}
+
+function updateEbookStats() {
+  document.getElementById('totalAcquisitionsEbooks').textContent = formatNumber(TOTAL_EBOOKS);
+  document.getElementById('avgPerYearEbooks').textContent = formatNumber(AVG_PER_YEAR_EBOOKS);
+  document.getElementById('maxValueEbooks').textContent = formatNumber(MAX_VALUE_EBOOKS);
+}
+
+function updateGrowthStats() {
+  document.getElementById('avgGrowthRate').textContent = STOCK_GROWTH_STATS.average + '%';
+  document.getElementById('maxGrowthRate').textContent = STOCK_GROWTH_STATS.maximum + '%';
+  document.getElementById('totalGrowthYears').textContent = formatNumber(STOCK_GROWTH_STATS.totalYears);
+}
+
+// ===== GENERATE TABLES =====
+function generateTable1() {
+  const columns = [
+    { field: 'year', title: 'Jahr' },
+    { field: 'value', title: 'Anzahl der Erwerbungen', formatter: formatNumber }
+  ];
+  return generateTable(ACQUISITION_DATA, columns, {
+    className: 'table table-striped table-hover',
+    ariaLabel: 'Detaildaten der Erwerbungen nach Jahren'
+  });
+}
+
+function generateTableEbooks() {
+  const columns = [
+    { field: 'year', title: 'Jahr' },
+    { field: 'value', title: 'Anzahl der Ebook-Erwerbungen', formatter: formatNumber }
+  ];
+  return generateTable(EBOOK_ACQUISITION_DATA, columns, {
+    className: 'table table-striped table-hover',
+    ariaLabel: 'Detaildaten der Ebook-Erwerbungen nach Jahren'
+  });
+}
+
+function generateTableGrowth() {
+  const columns = [
+    { field: 'year', title: 'Jahr' },
+    { field: 'growth', title: 'Wachstumsrate (%)', formatter: (value) => value + '%' },
+    { field: 'acquisitions', title: 'Erwerbungen', formatter: formatNumber },
+    { field: 'endOfYearStock', title: 'Jahresendbestand', formatter: formatNumber }
+  ];
+  return generateTable(STOCK_GROWTH_RATE_DATA, columns, {
+    className: 'table table-striped table-hover',
+    ariaLabel: 'Detaildaten zum Bestandswachstum nach Jahren'
+  });
+}
+
+function initTables() {
+  try {
+    document.querySelector('#details1 .details-content').innerHTML = generateTable1();
+    document.querySelector('#detailsEbooks .details-content').innerHTML = generateTableEbooks();
+    document.querySelector('#detailsGrowth .details-content').innerHTML = generateTableGrowth();
+    console.log('📋 Acquisition tables initialized successfully');
+  } catch (error) {
+    console.error('Error initializing acquisition tables:', error);
+  }
+}
+
+// ===== INITIALIZATION =====
+function initializeAcquisitions() {
+  try {
+    console.log('🚀 Initializing Acquisitions Dashboard...');
+    
+    // Check if data is available
+    if (typeof ACQUISITION_DATA === 'undefined') {
+      throw new Error('Required data not loaded');
+    }
+    
+    // Update all statistics
+    updateAcquisitionStats();
+    updateEbookStats();
+    updateGrowthStats();
+    
+    // Initialize all charts
+    initChart1();
+    initChartEbooks();
+    initChartGrowth();
+    
+    // Initialize tables
+    initTables();
+    
+    // Initialize common functionality
+    initDashboard([chart1, chartEbooks, chartGrowth]);
+    
+    console.log('✅ Acquisitions initialization complete');
+    
+  } catch (error) {
+    console.error('❌ Acquisitions initialization failed:', error);
+    announceToScreenReader('Fehler beim Laden der Erwerbungsanalyse');
+  }
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeAcquisitions);
+} else {
+  initializeAcquisitions();
+}
+
+// Fallback initialization
+window.addEventListener('load', function() {
+  if (!chart1 || !chartEbooks || !chartGrowth) {
+    console.log('🔄 Re-initializing acquisition charts...');
+    initializeAcquisitions();
+  }
+});
+</script>
+```

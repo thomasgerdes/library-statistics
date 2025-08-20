@@ -1,0 +1,51 @@
+# Quarto output files (außer docs/ für GitHub Pages)
+/*.html
+*_files/
+/.quarto/
+
+# Alle HTML-Dateien im Root ignorieren
+erwerbungen.html
+bestand.html
+index.html
+library-statistics.html
+
+# Alle _files Ordner im Root ignorieren
+index_files/
+erwerbungen_files/
+bestand_files/
+library-statistics_files/
+
+# IDE und Editor Dateien
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Dateien
+.DS_Store
+Thumbs.db
+
+# R/RStudio Dateien (falls verwendet)
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Python Dateien (falls verwendet)
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+
+# Node.js Dateien (falls verwendet)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backup Dateien
+*.bak
+*.backup
+*.tmp
