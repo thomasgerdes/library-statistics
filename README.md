@@ -6,9 +6,10 @@ This interactive dashboard visualizes library acquisitions and collection data f
 
 ## What it shows
 
-- Annual print book acquisitions
-- Current collection breakdown by subject areas and signature groups
-- Total collection overview including books and bound journal volumes
+- **Acquisitions Analysis**: Annual print book and ebook acquisitions with phase-based analysis
+- **Collection Overview**: Current collection breakdown by subject areas and signature groups  
+- **Growth Analysis**: Percentage growth rates and development trends over 25 years
+- **Total Collection**: Complete inventory including books and bound journal volumes
 
 ## Features
 
@@ -24,10 +25,12 @@ This interactive dashboard visualizes library acquisitions and collection data f
 
 ## Technical Details
 
-- Built with Quarto Markdown
-- Uses Chart.js 3.9.1 for interactive visualizations
-- Self-contained HTML output with embedded resources
-- Cosmo theme with custom styling
+- **Framework**: Built with Quarto Markdown for scientific publishing
+- **Visualization**: Chart.js 3.9.1 for interactive charts
+- **Styling**: Bootstrap Cosmo theme with custom CSS
+- **Architecture**: Multi-page website with shared data and functions
+- **Output**: Self-contained HTML with embedded resources
+- **Performance**: Optimized loading with modular JavaScript
 
 ## Data
 
@@ -38,6 +41,6 @@ The dashboard includes:
 
 ## References
 
-- [Quarto Documentation](https://quarto.org/)
-- [Chart.js Documentation](https://www.chartjs.org/docs/)
-- [Bootstrap Cosmo Theme](https://bootswatch.com/cosmo/)
+- [Quarto Documentation](https://quarto.org/) - Scientific publishing framework
+- [Chart.js Documentation](https://www.chartjs.org/docs/) - Interactive visualization library
+- [Bootstrap Cosmo Theme](https://bootswatch.com/cosmo/) - UI styling framework
