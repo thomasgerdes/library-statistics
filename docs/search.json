@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html#bereiche",
+    "href": "index.html#bereiche",
+    "title": "MPI Bibliothek Dashboard",
+    "section": "Bereiche",
+    "text": "Bereiche\n\n\n  📈 Erwerbungen\n  \n    Detaillierte Analyse der Print- und Ebook-Erwerbungen von 2000-2024. \n    Enthält Zeitreihenanalysen, Phasenvergleiche und Wachstumsraten.\n  \n  Erwerbungen analysieren →\n\n\n\n\n\n  📚 Bestand\n  \n    Umfassende Bestandsanalyse mit Fachgebietsverteilung, Entwicklungstrends \n    und Medientypvergleichen für den gesamten Bibliotheksbestand.\n  \n  Bestand erkunden →"
+  },
+  {
+    "objectID": "bestand.html#bestandsentwicklung-print-bücher",
+    "href": "bestand.html#bestandsentwicklung-print-bücher",
+    "title": "Bestand",
+    "section": "Bestandsentwicklung (Print-Bücher)",
+    "text": "Bestandsentwicklung (Print-Bücher)\n\n  Bestand 2000-2024\n  \n  \n    \n      -\n      Aktueller Bestand 2024\n    \n    \n      -\n      Gesamtwachstum\n    \n    \n      -\n      ⌀ Wachstum/Jahr\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\n\n📊 Detaildaten zur Bestandsentwicklung (Print)"
+  },
+  {
+    "objectID": "bestand.html#bestandsverteilung-nach-fachgebieten-print-bücher",
+    "href": "bestand.html#bestandsverteilung-nach-fachgebieten-print-bücher",
+    "title": "Bestand",
+    "section": "Bestandsverteilung nach Fachgebieten (Print-Bücher)",
+    "text": "Bestandsverteilung nach Fachgebieten (Print-Bücher)\n\n  Bestand 2025\n  \n  \n    \n      -\n      Print-Bücher (gesamt)\n    \n  \n\n  \n    Kreisdiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\n\n📋 Detaillierte Bestandsaufschlüsselung (Print)"
+  },
+  {
+    "objectID": "bestand.html#bestandsverteilung-nach-fachgebieten-ebooks",
+    "href": "bestand.html#bestandsverteilung-nach-fachgebieten-ebooks",
+    "title": "Bestand",
+    "section": "Bestandsverteilung nach Fachgebieten (Ebooks)",
+    "text": "Bestandsverteilung nach Fachgebieten (Ebooks)\nDie Bestandsverteilung für Ebooks ist aus den Daten nicht direkt ableitbar, da sie keine fachgebietsbezogenen Signaturen haben. Die Erwerbungshistorie legt jedoch nahe, dass die Aufteilung hier thematisch annähernd der des Printbestands entspricht, d.h. einen deutlichen Schwerpunkt im Bereich Sozial- und Kulturanthropologie hat."
+  },
+  {
+    "objectID": "bestand.html#gesamtbestand",
+    "href": "bestand.html#gesamtbestand",
+    "title": "Bestand",
+    "section": "Gesamtbestand",
+    "text": "Gesamtbestand\n\n  Gesamtbestand 2025\n  Aufteilung nach Medientypen\n  \n  \n    \n      -\n      Gesamtbestand\n    \n  \n\n  \n    Kreisdiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\n\n📊 Detaillierte Bestandsaufschlüsselung"
+  },
+  {
+    "objectID": "erwerbungen.html#print-bucherwerbungen",
+    "href": "erwerbungen.html#print-bucherwerbungen",
+    "title": "Erwerbungen",
+    "section": "Print-Bucherwerbungen",
+    "text": "Print-Bucherwerbungen\n\n\n  Zuwachs Bestand 2000-2024\n  \n  \n    \n      -\n      Gesamterwerbungen\n    \n    \n      -\n      Durchschnitt/Jahr\n    \n    \n      -\n      Höchstwert\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n  \n  \n    \n      -\n      ⌀ Phase 1 (2000-2007)\n    \n    \n      -\n      ⌀ Phase 2 (2008-2020)\n    \n    \n      -\n      ⌀ Phase 3 (2021-2024)\n    \n  \n\n\n\n📊 Detaildaten zur Erwerbungsentwicklung (Print)"
+  },
+  {
+    "objectID": "erwerbungen.html#ebook-erwerbungen",
+    "href": "erwerbungen.html#ebook-erwerbungen",
+    "title": "Erwerbungen",
+    "section": "Ebook-Erwerbungen",
+    "text": "Ebook-Erwerbungen\n\n\n\n\n  Zuwachs Ebooks 2000-2024\n  \n  \n    \n      -\n      Gesamterwerbungen\n    \n    \n      -\n      Durchschnitt/Jahr\n    \n    \n      -\n      Höchstwert\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\n\n📊 Detaildaten zur Ebook-Erwerbungsentwicklung"
+  },
+  {
+    "objectID": "erwerbungen.html#wachstumsanalyse",
+    "href": "erwerbungen.html#wachstumsanalyse",
+    "title": "Erwerbungen",
+    "section": "Wachstumsanalyse",
+    "text": "Wachstumsanalyse\n\n\n\n\n  Wachstumsanalyse\n  Print-Bücher 2000-2024\n  \n  \n    \n      -\n      ⌀ Wachstumsrate (%)\n    \n    \n      -\n      Höchste Wachstumsrate (%)\n    \n    \n      -\n      Jahre mit Wachstum\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\n\n📊 Detaildaten zum Bestandswachstum"
+  }
+]
