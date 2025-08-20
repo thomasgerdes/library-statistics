@@ -120,7 +120,7 @@ format:
 
 ```
 
-## Print-Bucherwerbungen
+## Print-Bücher
 
 ```{=html}
 <!-- Print-Bücher Erwerbungen -->
@@ -183,16 +183,15 @@ format:
 </details>
 ```
 
-<div style="height: 20px;"></div>
+<div style="height: 40px;"></div>
 
-## Ebook-Erwerbungen
+## Ebooks
 
 ```{=html}
-<div style="height: 80px;"></div>
 
 <!-- Ebook Erwerbungen -->
 <div class="chart-container">
-  <h2 class="chart-title">Zuwachs Ebooks 2000-2024</h2>
+  <h2 class="chart-title">Zuwachs Bestand 2000-2024</h2>
   
   <div class="info-box-container" style="margin: 15px 0;">
     <div class="info-box blue">
@@ -235,16 +234,15 @@ format:
 </details>
 ```
 
-<div style="height: 20px;"></div>
+<div style="height: 40px;"></div>
 
 ## Wachstumsanalyse
 
 ```{=html}
-<div style="height: 80px;"></div>
 
 <!-- Wachstumsanalyse -->
 <div class="chart-container">
-  <h2 class="chart-title">Wachstumsanalyse</h2>
+  <h2 class="chart-title">Prozentuales Wachstum</h2>
   <p style="text-align: center; color: #666; margin: 0 0 20px 0; font-size: 16px;">Print-Bücher 2000-2024</p>
   
   <div class="info-box-container" style="margin: 15px 0;">
