@@ -32,13 +32,6 @@ This interactive dashboard visualizes library acquisitions and collection data f
 - **Output**: Self-contained HTML with embedded resources
 - **Performance**: Optimized loading with modular JavaScript
 
-## Data
-
-The dashboard includes:
-- 25 years of acquisition data (46,023 total acquisitions)
-- 21 subject classification groups
-- 51,820 print books and 3,561 bound journal volumes
-
 ## References
 
 - [Quarto Documentation](https://quarto.org/) - Scientific publishing framework
