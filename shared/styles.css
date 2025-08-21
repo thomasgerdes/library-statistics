@@ -1,11 +1,9 @@
 /*
 Shared Styles for MPI Library Dashboard
 Author: Thomas Gerdes | License: MIT
-Common styling for all dashboard pages
 Version: 2.0.0 | Last updated: August 2025
 */
 
-/* ===== GLOBAL SETTINGS ===== */
 .quarto-container {
   max-width: 1400px !important;
 }
@@ -17,7 +15,73 @@ body {
   color: #333;
 }
 
-/* ===== NAVIGATION STYLING ===== */
+a {
+  color: #006c66 !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #004d47 !important;
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid #006c66;
+  outline-offset: 2px;
+}
+
+.sidebar nav a,
+.toc a,
+.toc-left a,
+nav[role="doc-toc"] a,
+#TOC a,
+.quarto-sidebar-nav a {
+  color: #006c66 !important;
+}
+
+.sidebar nav a:hover,
+.toc a:hover,
+.toc-left a:hover,
+nav[role="doc-toc"] a:hover,
+#TOC a:hover,
+.quarto-sidebar-nav a:hover {
+  color: #004d47 !important;
+}
+
+.navbar a,
+.navbar-nav a,
+.page-footer a,
+header a,
+footer a {
+  color: inherit !important;
+}
+
+.navbar a:hover,
+.navbar-nav a:hover,
+.page-footer a:hover,
+header a:hover,
+footer a:hover {
+  color: inherit !important;
+}
+
+.navbar,
+.navbar-default,
+.quarto-navigation,
+.quarto-navbar,
+nav.navbar,
+header .navbar,
+body > header,
+.quarto-title-banner {
+  background-color: #006c66 !important; 
+}
+
+.navbar-expand-lg,
+.navbar-dark,
+.bg-primary {
+  background-color: #006c66 !important;
+}
+
 .dashboard-nav {
   background: #f8f9fa;
   padding: 15px;
@@ -55,7 +119,6 @@ body {
   outline-offset: 2px;
 }
 
-/* ===== INFO BOX STYLING ===== */
 .info-box-container {
   display: flex;
   flex-wrap: wrap;
@@ -65,7 +128,7 @@ body {
 }
 
 .info-box {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e6f3f2 100%);
   padding: 20px;
   border-radius: 8px;
   text-align: center;
@@ -74,6 +137,7 @@ body {
   max-width: 280px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 4px solid #006c66;
 }
 
 .info-box:hover {
@@ -95,7 +159,18 @@ body {
   font-weight: 500;
 }
 
-/* Info box color variants */
+.info-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1 1 200px;
+  min-width: 200px;
+  max-width: 280px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 .info-box.blue { 
   border-left: 4px solid #007bff; 
   background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
@@ -126,7 +201,6 @@ body {
 }
 .info-box.orange .info-box-value { color: #fd7e14; }
 
-/* ===== BUTTON STYLING ===== */
 .dashboard-button {
   padding: 8px 16px;
   border: none;
@@ -154,7 +228,6 @@ body {
   transform: translateY(0);
 }
 
-/* ===== CHART CONTAINERS ===== */
 .chart-container {
   background: white;
   padding: 25px;

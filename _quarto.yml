@@ -11,11 +11,11 @@ website:
     search: false
     left:
       - href: index.qmd
-        text: "📊 Einleitung"
+        text: "Einleitung"
       - href: bestand.qmd
-        text: "📚 Bestand"
+        text: "Bestand"
       - href: erwerbungen.qmd  
-        text: "📈 Erwerbungen"
+        text: "Erwerbungen"
     
     right:
       - icon: github
@@ -25,7 +25,7 @@ website:
   sidebar: false
   
   page-footer:
-    left: "© 2025 [Thomas Gerdes](https://thomasgerdes.de)"
+    left: "© 2025 [Thomas Gerdes](https://thomasgerdes.de){target=\"_blank\"}"
 
 format:
   html:

@@ -1,7 +1,7 @@
 ---
 title: "MPI-Bibliothek"
 subtitle: "Dashboard für Erwerbungen & Bestandsanalyse (2000-2024)"
-author: "Thomas Gerdes"
+author: "Thomas Gerdes [![ORCID](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8524-5987){target=\"_blank\"}"
 date: "2025-08-15"
 format:
   html:
