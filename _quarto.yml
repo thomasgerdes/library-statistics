@@ -3,19 +3,19 @@ project:
   output-dir: docs
 
 website:
-  title: "MPI Bibliothek Dashboard"
-  description: "Interaktives Dashboard für Erwerbungen und Bestandsanalyse der MPI Bibliothek 2000-2024"
+  title: "MPI-Bibliothek"
+  description: "Dashboard für Erwerbungen & Bestandsanalyse der MPI-Bibliothek 2000-2024"
   
   navbar:
     background: primary
     search: false
     left:
       - href: index.qmd
-        text: "📊 Übersicht"
-      - href: erwerbungen.qmd  
-        text: "📈 Erwerbungen"
+        text: "📊 Einleitung"
       - href: bestand.qmd
         text: "📚 Bestand"
+      - href: erwerbungen.qmd  
+        text: "📈 Erwerbungen"
     
     right:
       - icon: github
@@ -25,11 +25,7 @@ website:
   sidebar: false
   
   page-footer:
-    left: "© 2025 [Thomas Gerdes](https://thomasgerdes.de) - MPI Library Dashboard"
-    right: 
-      - icon: github
-        href: https://github.com/thomasgerdes/library-statistics
-        aria-label: "GitHub"
+    left: "© 2025 [Thomas Gerdes](https://thomasgerdes.de)"
 
 format:
   html:
@@ -51,7 +47,7 @@ format:
           <meta name="keywords" content="library, statistics, dashboard, acquisitions, collection, MPI">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-          <title>MPI Bibliothek Dashboard</title>
+          <title>MPI-Bibliothek</title>
 
 execute:
   echo: false

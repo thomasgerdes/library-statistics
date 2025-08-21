@@ -8,7 +8,7 @@
 
 <meta name="author" content="Thomas Gerdes">
 
-<title>Erwerbungen – MPI Bibliothek Dashboard</title>
+<title>Erwerbungen – MPI-Bibliothek</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,7 +72,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="keywords" content="library, statistics, dashboard, acquisitions, collection, MPI">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-<title>MPI Bibliothek Dashboard</title>
+<title>MPI-Bibliothek</title>
+<meta name="author" content="Thomas Gerdes">
+<meta name="description" content="Comprehensive collection analysis for MPI library including subject distribution">
+<meta name="keywords" content="library, collection, subjects, statistics, MPI, print books, distribution">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="shared/data.js"></script>
+<script src="shared/functions.js"></script>
 
 
 <link rel="stylesheet" href="shared/styles.css">
@@ -86,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">MPI Bibliothek Dashboard</span>
+    <span class="navbar-title">MPI-Bibliothek</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Suchen"></div>
@@ -97,15 +104,15 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">📊 Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./erwerbungen.html" aria-current="page"> 
-<span class="menu-text">📈 Erwerbungen</span></a>
+<span class="menu-text">📊 Einleitung</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./bestand.html"> 
 <span class="menu-text">📚 Bestand</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./erwerbungen.html" aria-current="page"> 
+<span class="menu-text">📈 Erwerbungen</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -277,7 +284,6 @@ ul.task-list li input[type="checkbox"] {
   opacity: 0.9;
 }
 </style>
-
 <section id="print-bücher" class="level2">
 <h2 class="anchored" data-anchor-id="print-bücher">Print-Bücher</h2>
 <!-- Print-Bücher Erwerbungen -->
@@ -325,6 +331,14 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </div>
 
+<p>Die Bibliothek durchlief ab 2019 eine außergewöhnliche Phase mit erheblichen strukturellen Veränderungen.</p> 
+  
+<p>Zunächst wurde 2019 eine der drei Forschungsabteilungen geschlossen, gefolgt von der Schließung einer zweiten Abteilung im Jahr 2021. Parallel dazu führten 2019 festgestellte Baumängel im Gebäude der Institutsbibliothek dazu, dass diese für Wissenschaftler*innen vor Ort nicht mehr zugänglich war. Erst seit Herbst 2022 steht der Bestand wieder – allerdings mit reduzierten Öffnungszeiten – für die Präsenznutzung zur Verfügung, jedoch außerhalb des Instituts.</p>
+
+<p>Die Corona-Pandemie ab 2020 verstärkte diese Problematik zusätzlich. Ab 2023/24 begann die Phase einer institutionellen Neuausrichtung.</p>
+
+<p>Aufgrund dieser außergewöhnlichen Umstände sind die Zuwachszahlen der Jahre 2021 bis 2024 nicht als repräsentativ für die typische Bestandsentwicklung einer Max-Planck-Institutsbibliothek zu bewerten.</p>
+
 <details id="details1">
 <summary>📊 Detaildaten zur Erwerbungsentwicklung (Print)</summary>
 <div class="details-content"></div>
@@ -365,6 +379,10 @@ ul.task-list li input[type="checkbox"] {
     <canvas id="acquisitionsChartEbooks" role="img" aria-label="Diagramm der Ebook-Erwerbungen von 2000 bis 2024"></canvas>
   </div>
 </div>
+
+<p>Während der Corona-Zeit begann die Bibliothek, im signifikanten Ausmaß Ebooks zu erwerben. Allerdings blieben die Erwerbungszahlen mit einem Peak von 131 (2021) sehr gering und substituierten nicht annähernd die Print-Erwerbungszahlen früherer Jahre.</p> 
+
+<p>Im sozialwissenschaftlichen Bereich ist nur ein Teil der relevanten Publikationen als Ebook verfügbar. Die Fachkultur ist gleichzeitig noch relativ stark von Monografien und Print-Publikationen geprägt. Ebooks sind für Bibliotheken in der Erwerbung zudem deutlich teurer als die entsprechenden Print-Ausgaben und Forschende bemängeln oftmals deren verlagsseitig festgelegten Nutzungsbegrenzungen.</p>
 
 <details id="detailsEbooks">
 <summary>📊 Detaildaten zur Ebook-Erwerbungsentwicklung</summary>
@@ -408,15 +426,16 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </div>
 
+<p>In der Phase der saturierten Bibliothek des MPI für Geschichte lagen die jährlichen prozentualen Wachstumsraten des Bestands bei leicht über 2 Prozent, was den Annahmen des HIS-HE in seiner gutachterlichen Stellungnahme zu "Sonderfläche Bibliotheken: Empirische Erhebung der Institutsbibliotheken &amp; Planungsempfehlungen" (2023) für Bibliotheken der GSH-Sektion in der MPG entspricht.</p>
+
+<p>Nach der Neugründung des MPI-MMG überstiegen die jährlichen Wachstumsraten diesen Wert sehr deutlich für mehr als ein Jahrzehnt. In den ersten drei Jahren erreichten sie über 20 Prozent und pendelten sich dann bei 9-10 Prozent ein.</p>
+
 <details id="detailsGrowth">
 <summary>📊 Detaildaten zum Bestandswachstum</summary>
 <div class="details-content"></div>
 </details>
 
-<div style="height: 100px;"></div>
-
 <script>
-// Der komplette JavaScript-Code bleibt unverändert aus der funktionierenden Version
 // Check if required data is loaded
 if (typeof ACQUISITION_DATA === 'undefined') {
   console.error('❌ Data not loaded! Please check shared/data.js');
@@ -466,7 +485,7 @@ function initChart1(type = 'line') {
         spanGaps: false
       },
       {
-        label: 'MPI Diversity (2021-2024): saturiert & nur 1 Abteilung',
+        label: 'MPI Diversity (2021-2024): Corona & Bibliotheksbestand ausgelagert',
         data: ACQUISITION_DATA.map(d => PHASE3_DATA.find(p => p.year === d.year)?.value || null),
         borderColor: '#dc3545',
         backgroundColor: type === 'bar' ? '#dc3545' : '#dc3545',
@@ -1163,20 +1182,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2025 <a href="https://thomasgerdes.de">Thomas Gerdes</a> - MPI Library Dashboard</p>
+<p>© 2025 <a href="https://thomasgerdes.de">Thomas Gerdes</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/thomasgerdes/library-statistics">
-      <i class="bi bi-github" role="img" aria-label="GitHub">
-</i> 
-    </a>
-  </li>  
-</ul>
+      &nbsp;
     </div>
   </div>
 </footer>

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Thomas Gerdes">
 
-<title>Bestand – MPI Bibliothek Dashboard</title>
+<title>Bestand – MPI-Bibliothek</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="keywords" content="library, statistics, dashboard, acquisitions, collection, MPI">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-<title>MPI Bibliothek Dashboard</title>
+<title>MPI-Bibliothek</title>
 <meta name="author" content="Thomas Gerdes">
 <meta name="description" content="Comprehensive collection analysis for MPI library including subject distribution">
 <meta name="keywords" content="library, collection, subjects, statistics, MPI, print books, distribution">
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">MPI Bibliothek Dashboard</span>
+    <span class="navbar-title">MPI-Bibliothek</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Suchen"></div>
@@ -104,15 +104,15 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">📊 Übersicht</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./erwerbungen.html"> 
-<span class="menu-text">📈 Erwerbungen</span></a>
+<span class="menu-text">📊 Einleitung</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./bestand.html" aria-current="page"> 
 <span class="menu-text">📚 Bestand</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./erwerbungen.html"> 
+<span class="menu-text">📈 Erwerbungen</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -190,7 +190,6 @@ body {
   margin: 0 20px;
 }
 
-/* Navigation Styling */
 .dashboard-nav {
   background: #f8f9fa;
   padding: 15px;
@@ -219,7 +218,6 @@ body {
   background: #28a745;
 }
 
-/* Info Box Styling */
 .info-box-container {
   display: flex;
   flex-wrap: wrap;
@@ -273,7 +271,6 @@ body {
 .info-box.red { border-left: 3px solid #dc3545; }
 .info-box.red .info-box-value { color: #dc3545; }
 
-/* Button styling */
 .dashboard-button {
   padding: 6px 12px;
   border: none;
@@ -293,7 +290,6 @@ body {
   outline-offset: 2px;
 }
 
-/* Chart containers */
 .chart-container {
   background: white;
   padding: 20px;
@@ -318,19 +314,11 @@ body {
   <h2 class="chart-title anchored">Bestand 2000-2024</h2>
   
   <div class="info-box-container" style="margin: 15px 0;">
-    <div class="info-box blue">
-      <div class="info-box-value" id="currentStockPrint" aria-live="polite">-</div>
-      <div class="info-box-label">Aktueller Bestand 2024</div>
-    </div>
-    <div class="info-box blue">
-      <div class="info-box-value" id="growthTotalPrint" aria-live="polite">-</div>
-      <div class="info-box-label">Gesamtwachstum</div>
-    </div>
-    <div class="info-box blue">
-      <div class="info-box-value" id="avgGrowthPrint" aria-live="polite">-</div>
-      <div class="info-box-label">⌀ Wachstum/Jahr</div>
-    </div>
+  <div class="info-box blue">
+    <div class="info-box-value" id="currentStockPrint" aria-live="polite">-</div>
+    <div class="info-box-label">Aktueller Bestand 2024</div>
   </div>
+</div>
 
   <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
     <button id="lineBtnStock" onclick="changeChartTypeStock('line')" aria-label="Wechsel zu Liniendiagramm für Bestandsentwicklung" class="dashboard-button" style="background: #28a745;">Liniendiagramm</button>
@@ -342,6 +330,8 @@ body {
     <canvas id="stockChart" role="img" aria-label="Diagramm der Bestandsentwicklung Print-Bücher von 2000 bis 2024"></canvas>
   </div>
 </div>
+
+<p>Im Jahr 2008 wurden aus dem Bestand des MPI für Geschichte 8.096 Print-Bücher in die Bibliothek des MPI-MMG übernommen. Das entspricht ca. 7 Prozent des vormaligen Gestamtbestands.</p>
 
 <details id="detailsStock">
 <summary>📊 Detaildaten zur Bestandsentwicklung (Print)</summary>
@@ -388,8 +378,9 @@ body {
 </section>
 <section id="bestandsverteilung-nach-fachgebieten-ebooks" class="level2">
 <h2 class="anchored" data-anchor-id="bestandsverteilung-nach-fachgebieten-ebooks">Bestandsverteilung nach Fachgebieten (Ebooks)</h2>
-<p>Die Bestandsverteilung für Ebooks ist aus den Daten nicht direkt ableitbar, da sie keine fachgebietsbezogenen Signaturen haben. Die Erwerbungshistorie legt jedoch nahe, dass die Aufteilung hier thematisch annähernd der des Printbestands entspricht, d.h. einen deutlichen Schwerpunkt im Bereich Sozial- und Kulturanthropologie hat.</p>
-<hr>
+<p>
+Die fachliche Verteilung der Ebooks lässt sich aus den Daten nicht direkt ermitteln, da Ebooks im Gegensatz zu gedruckten Büchern keine fachgebietsspezifischen Signaturen erhalten. Die Erwerbungshistorie deutet jedoch darauf hin, dass die thematische Aufteilung der Ebooks weitgehend der des Printbestands entspricht und somit ebenfalls einen klaren Schwerpunkt im Bereich der Sozial- und Kulturanthropologie aufweist.
+</p>
 <div style="height: 40px;">
 
 </div>
@@ -428,20 +419,11 @@ body {
 <div style="height: 80px;"></div>
 
 <script>
-/*
-MPI Library Dashboard - Collection Page
-Author: Thomas Gerdes | License: MIT
-Comprehensive collection analysis and subject distribution
-Version: 2.0.0 | Last updated: August 2025
-*/
-
-// Chart instances
 let chartStock, chart2, chart3;
 let currentChartTypeStock = 'line';
 let currentChartType2 = 'pie';
 let currentChartType3 = 'pie';
 
-// ===== STOCK DEVELOPMENT CHART =====
 function initChartStock(type = 'line') {
   const ctx = document.getElementById('stockChart').getContext('2d');
   
@@ -485,7 +467,6 @@ function downloadChartStock() {
   downloadChart(chartStock, 'bestandsentwicklung_2000-2024.png', 'Bestandsentwicklungsdiagramm');
 }
 
-// ===== SUBJECT DISTRIBUTION CHART =====
 function initChart2(type = 'pie') {
   const ctx = document.getElementById('subjectChart').getContext('2d');
   
@@ -496,62 +477,89 @@ function initChart2(type = 'pie') {
   currentChartType2 = type;
   updateActiveButtons(type, null, 'barBtn2', 'pieBtn2');
 
-  const sortedData = [...SUBJECT_DATA].sort((a, b) => b.count - a.count);
-  const colors = generateColors(sortedData.length);
+  const colors = [
+    '#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8', 
+    '#6f42c1', '#fd7e14', '#20c997', '#6c757d', '#e83e8c',
+    '#007bff80', '#28a74580', '#dc354580', '#ffc10780', '#17a2b880',
+    '#6f42c180', '#fd7e1480', '#20c99780', '#007bff40', '#28a74540', '#dc354540'
+  ];
 
-  const config = getStandardChartConfig(type, {
-    labels: sortedData.map(d => `${d.signature} - ${d.name}`),
-    datasets: [{
-      label: 'Anzahl Bücher',
-      data: sortedData.map(d => d.count),
-      backgroundColor: colors,
-      borderColor: colors.map(color => color.replace('80', '').replace('40', '')),
-      borderWidth: 1
-    }]
-  }, {
-    layout: { padding: { bottom: type === 'bar' ? 60 : 20, left: 10, right: 10, top: 10 } },
-    plugins: {
-      legend: {
-        display: type === 'pie',
-        position: 'bottom',
-        labels: { boxWidth: 12, padding: 8, font: { size: 9 }, usePointStyle: true }
-      },
-      tooltip: {
-        callbacks: {
-          title: context => null,
-          label: context => {
-            const count = type === 'bar' ? context.parsed.y : context.parsed;
-            const percentage = ((count / TOTAL_BOOKS) * 100).toFixed(1);
-            const item = sortedData[context.dataIndex];
-            return `${item.signature} - ${item.name}: ${formatNumber(count)} (${percentage}%)`;
-          }
-        }
-      }
-    },
-    scales: type === 'bar' ? {
-      x: {
-        title: { display: true, text: 'Signaturgruppe', font: { size: 12 } },
-        ticks: {
-          maxRotation: 45,
-          minRotation: 45,
-          font: { size: 8 },
-          callback: (value, index) => {
-            const item = sortedData[index];
-            if (item) { 
-              const label = `${item.signature} - ${item.name}`; 
-              return label.length > 25 ? label.substr(0, 22) + '...' : label; 
-            }
-            return value;
-          }
-        }
-      },
-      y: { 
-        title: { display: true, text: 'Anzahl Bücher', font: { size: 12 } }, 
-        beginAtZero: true, 
-        ticks: { font: { size: 10 } } 
-      }
-    } : {}
+  const sortedData = [...SUBJECT_DATA].sort((a, b) => b.count - a.count);
+  
+  const indexMapping = {};
+  SUBJECT_DATA.forEach((item, index) => {
+    indexMapping[`${item.signature}-${item.name}`] = index;
   });
+  
+  const colorsToUse = sortedData.map(item => {
+    const originalIndex = indexMapping[`${item.signature}-${item.name}`];
+    return colors[originalIndex];
+  });
+
+  const config = {
+    type: type,
+    data: {
+      labels: sortedData.map(d => `${d.signature} - ${d.name}`),
+      datasets: [{
+        label: 'Anzahl Bücher',
+        data: sortedData.map(d => d.count),
+        backgroundColor: colorsToUse,
+        borderColor: colorsToUse.map(color => color.replace('80', '').replace('40', '')),
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      accessibility: {
+        announceNewData: {
+          enabled: true
+        }
+      },
+      layout: { padding: { bottom: type === 'bar' ? 60 : 20, left: 10, right: 10, top: 10 } },
+      plugins: {
+        legend: {
+          display: type === 'pie',
+          position: 'bottom',
+          labels: { boxWidth: 12, padding: 8, font: { size: 9 }, usePointStyle: true }
+        },
+        tooltip: {
+          callbacks: {
+            title: context => null,
+            label: context => {
+              const count = type === 'bar' ? context.parsed.y : context.parsed;
+              const percentage = ((count / TOTAL_BOOKS) * 100).toFixed(1);
+              const item = sortedData[context.dataIndex];
+              return `${item.signature} - ${item.name}: ${count.toLocaleString('de-DE')} (${percentage}%)`;
+            }
+          }
+        }
+      },
+      scales: type === 'bar' ? {
+        x: {
+          title: { display: true, text: 'Signaturgruppe', font: { size: 12 } },
+          ticks: {
+            maxRotation: 45,
+            minRotation: 45,
+            font: { size: 8 },
+            callback: (value, index) => {
+              const item = sortedData[index];
+              if (item) { 
+                const label = `${item.signature} - ${item.name}`; 
+                return label.length > 25 ? label.substr(0, 22) + '...' : label; 
+              }
+              return value;
+            }
+          }
+        },
+        y: { 
+          title: { display: true, text: 'Anzahl Bücher', font: { size: 12 } }, 
+          beginAtZero: true, 
+          ticks: { font: { size: 10 } } 
+        }
+      } : {}
+    }
+  };
   
   chart2 = new Chart(ctx, config);
   announceToScreenReader(`Bestandsdiagramm als ${type === 'pie' ? 'Kreisdiagramm' : 'Balkendiagramm'} geladen`);
@@ -565,14 +573,6 @@ function downloadChart2() {
   downloadChart(chart2, 'bestand_sachgruppen_2025.png', 'Bestandsdiagramm');
 }
 
-// ===== TOTAL COLLECTION CHART =====
-const collectionColors = ['#007bff', '#28a745', '#17a2b8'];
-const collectionData = [
-  { name: 'Print-Bücher', count: TOTAL_BOOKS }, 
-  { name: 'Ebooks', count: TOTAL_EBOOKS },
-  ...OTHER_MEDIA_DATA
-];
-
 function initChart3(type = 'pie') {
   const ctx = document.getElementById('totalCollectionChart').getContext('2d');
   
@@ -583,52 +583,70 @@ function initChart3(type = 'pie') {
   currentChartType3 = type;
   updateActiveButtons(type, null, 'barBtn3', 'pieBtn3');
 
-  // Sort data by size for bar charts only
+  const collectionColors = ['#007bff', '#28a745', '#17a2b8'];
+  
+  const collectionData = [
+    { name: 'Print-Bücher', count: TOTAL_BOOKS }, 
+    { name: 'Ebooks', count: TOTAL_EBOOKS },
+    ...OTHER_MEDIA_DATA
+  ];
+
   const dataToUse = type === 'bar' ? 
     [...collectionData].sort((a, b) => b.count - a.count) : 
     collectionData;
 
-  const config = getStandardChartConfig(type, {
-    labels: dataToUse.map(d => d.name),
-    datasets: [{
-      label: 'Anzahl Medien',
-      data: dataToUse.map(d => d.count),
-      backgroundColor: collectionColors,
-      borderColor: collectionColors,
-      borderWidth: 1
-    }]
-  }, {
-    layout: { padding: { bottom: type === 'bar' ? 40 : 20, left: 10, right: 10, top: 10 } },
-    plugins: {
-      legend: {
-        display: type === 'pie',
-        position: 'bottom',
-        labels: { boxWidth: 15, padding: 15, font: { size: 12 }, usePointStyle: true }
+  const config = {
+    type: type,
+    data: {
+      labels: dataToUse.map(d => d.name),
+      datasets: [{
+        label: 'Anzahl Medien',
+        data: dataToUse.map(d => d.count),
+        backgroundColor: collectionColors,
+        borderColor: collectionColors,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      accessibility: {
+        announceNewData: {
+          enabled: true
+        }
       },
-      tooltip: {
-        callbacks: {
-          title: context => null,
-          label: context => {
-            const count = type === 'bar' ? context.parsed.y : context.parsed;
-            const percentage = ((count / TOTAL_COLLECTION) * 100).toFixed(1);
-            const item = dataToUse[context.dataIndex];
-            return `${item.name}: ${formatNumber(count)} (${percentage}%)`;
+      layout: { padding: { bottom: type === 'bar' ? 40 : 20, left: 10, right: 10, top: 10 } },
+      plugins: {
+        legend: {
+          display: type === 'pie',
+          position: 'bottom',
+          labels: { boxWidth: 15, padding: 15, font: { size: 12 }, usePointStyle: true }
+        },
+        tooltip: {
+          callbacks: {
+            title: context => null,
+            label: context => {
+              const count = type === 'bar' ? context.parsed.y : context.parsed;
+              const percentage = ((count / TOTAL_COLLECTION) * 100).toFixed(1);
+              const item = dataToUse[context.dataIndex];
+              return `${item.name}: ${count.toLocaleString('de-DE')} (${percentage}%)`;
+            }
           }
         }
-      }
-    },
-    scales: type === 'bar' ? {
-      x: { 
-        title: { display: true, text: 'Medientyp', font: { size: 12 } }, 
-        ticks: { font: { size: 11 } } 
       },
-      y: { 
-        title: { display: true, text: 'Anzahl Medien', font: { size: 12 } }, 
-        beginAtZero: true, 
-        ticks: { font: { size: 10 } } 
-      }
-    } : {}
-  });
+      scales: type === 'bar' ? {
+        x: { 
+          title: { display: true, text: 'Medientyp', font: { size: 12 } }, 
+          ticks: { font: { size: 11 } } 
+        },
+        y: { 
+          title: { display: true, text: 'Anzahl Medien', font: { size: 12 } }, 
+          beginAtZero: true, 
+          ticks: { font: { size: 10 } } 
+        }
+      } : {}
+    }
+  };
   
   chart3 = new Chart(ctx, config);
   announceToScreenReader(`Gesamtbestandsdiagramm als ${type === 'pie' ? 'Kreisdiagramm' : 'Balkendiagramm'} geladen`);
@@ -642,11 +660,8 @@ function downloadChart3() {
   downloadChart(chart3, 'gesamtbestand_2025.png', 'Gesamtbestandsdiagramm');
 }
 
-// ===== UPDATE STATISTICS =====
 function updateStockStats() {
   document.getElementById('currentStockPrint').textContent = formatNumber(CURRENT_STOCK);
-  document.getElementById('growthTotalPrint').textContent = formatNumber(TOTAL_GROWTH);
-  document.getElementById('avgGrowthPrint').textContent = formatNumber(AVG_GROWTH_PER_YEAR);
 }
 
 function updateSubjectStats() {
@@ -657,7 +672,6 @@ function updateCollectionStats() {
   document.getElementById('totalCollection').textContent = formatNumber(TOTAL_COLLECTION);
 }
 
-// ===== GENERATE TABLES =====
 function generateTableStock() {
   const columns = [
     { field: 'year', title: 'Jahr' },
@@ -689,6 +703,13 @@ function generateTable2() {
 }
 
 function generateTable3() {
+  // Definiere die Daten hier lokal
+  const collectionData = [
+    { name: 'Print-Bücher', count: TOTAL_BOOKS }, 
+    { name: 'Ebooks', count: TOTAL_EBOOKS },
+    ...OTHER_MEDIA_DATA
+  ];
+
   const columns = [
     { field: 'name', title: 'Medientyp' },
     { field: 'count', title: 'Anzahl', formatter: formatNumber },
@@ -715,25 +736,20 @@ function initTables() {
   }
 }
 
-// ===== INITIALIZATION =====
 function initializeCollection() {
   try {
     console.log('🚀 Initializing Collection Dashboard...');
     
-    // Update all statistics
     updateStockStats();
     updateSubjectStats();
     updateCollectionStats();
     
-    // Initialize all charts
     initChartStock();
     initChart2();
     initChart3();
     
-    // Initialize tables
     initTables();
     
-    // Initialize common functionality
     initDashboard([chartStock, chart2, chart3]);
     
     console.log('✅ Collection initialization complete');
@@ -744,14 +760,12 @@ function initializeCollection() {
   }
 }
 
-// Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeCollection);
 } else {
   initializeCollection();
 }
 
-// Fallback initialization
 window.addEventListener('load', function() {
   if (!chartStock || !chart2 || !chart3) {
     console.log('🔄 Re-initializing collection charts...');
@@ -1188,20 +1202,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2025 <a href="https://thomasgerdes.de">Thomas Gerdes</a> - MPI Library Dashboard</p>
+<p>© 2025 <a href="https://thomasgerdes.de">Thomas Gerdes</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/thomasgerdes/library-statistics">
-      <i class="bi bi-github" role="img" aria-label="GitHub">
-</i> 
-    </a>
-  </li>  
-</ul>
+      &nbsp;
     </div>
   </div>
 </footer>

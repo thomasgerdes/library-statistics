@@ -12,9 +12,19 @@ format:
     embed-resources: false
     page-layout: full
     lang: de
+    include-in-header:
+      - text: |
+          <meta name="author" content="Thomas Gerdes">
+          <meta name="description" content="Comprehensive collection analysis for MPI library including subject distribution">
+          <meta name="keywords" content="library, collection, subjects, statistics, MPI, print books, distribution">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+          <script src="shared/data.js"></script>
+          <script src="shared/functions.js"></script>
 ---
 
-<div style="height: 40px;"></div>
+::: {style="height: 40px;"}
+:::
 
 ```{=html}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
@@ -117,7 +127,6 @@ format:
   opacity: 0.9;
 }
 </style>
-
 ```
 
 ## Print-Bücher
@@ -177,13 +186,22 @@ format:
   </div>
 </div>
 
+<p>Die Bibliothek durchlief ab 2019 eine außergewöhnliche Phase mit erheblichen strukturellen Veränderungen.</p> 
+  
+<p>Zunächst wurde 2019 eine der drei Forschungsabteilungen geschlossen, gefolgt von der Schließung einer zweiten Abteilung im Jahr 2021. Parallel dazu führten 2019 festgestellte Baumängel im Gebäude der Institutsbibliothek dazu, dass diese für Wissenschaftler*innen vor Ort nicht mehr zugänglich war. Erst seit Herbst 2022 steht der Bestand wieder – allerdings mit reduzierten Öffnungszeiten – für die Präsenznutzung zur Verfügung, jedoch außerhalb des Instituts.</p>
+
+<p>Die Corona-Pandemie ab 2020 verstärkte diese Problematik zusätzlich. Ab 2023/24 begann die Phase einer institutionellen Neuausrichtung.</p>
+
+<p>Aufgrund dieser außergewöhnlichen Umstände sind die Zuwachszahlen der Jahre 2021 bis 2024 nicht als repräsentativ für die typische Bestandsentwicklung einer Max-Planck-Institutsbibliothek zu bewerten.</p>
+
 <details id="details1">
 <summary>📊 Detaildaten zur Erwerbungsentwicklung (Print)</summary>
 <div class="details-content"></div>
 </details>
 ```
 
-<div style="height: 40px;"></div>
+::: {style="height: 40px;"}
+:::
 
 ## Ebooks
 
@@ -228,13 +246,18 @@ format:
   </div>
 </div>
 
+<p>Während der Corona-Zeit begann die Bibliothek, im signifikanten Ausmaß Ebooks zu erwerben. Allerdings blieben die Erwerbungszahlen mit einem Peak von 131 (2021) sehr gering und substituierten nicht annähernd die Print-Erwerbungszahlen früherer Jahre.</p> 
+
+<p>Im sozialwissenschaftlichen Bereich ist nur ein Teil der relevanten Publikationen als Ebook verfügbar. Die Fachkultur ist gleichzeitig noch relativ stark von Monografien und Print-Publikationen geprägt. Ebooks sind für Bibliotheken in der Erwerbung zudem deutlich teurer als die entsprechenden Print-Ausgaben und Forschende bemängeln oftmals deren verlagsseitig festgelegten Nutzungsbegrenzungen.</p>
+
 <details id="detailsEbooks">
 <summary>📊 Detaildaten zur Ebook-Erwerbungsentwicklung</summary>
 <div class="details-content"></div>
 </details>
 ```
 
-<div style="height: 40px;"></div>
+::: {style="height: 40px;"}
+:::
 
 ## Wachstumsanalyse
 
@@ -280,15 +303,16 @@ format:
   </div>
 </div>
 
+<p>In der Phase der saturierten Bibliothek des MPI für Geschichte lagen die jährlichen prozentualen Wachstumsraten des Bestands bei leicht über 2 Prozent, was den Annahmen des HIS-HE in seiner gutachterlichen Stellungnahme zu "Sonderfläche Bibliotheken: Empirische Erhebung der Institutsbibliotheken & Planungsempfehlungen" (2023) für Bibliotheken der GSH-Sektion in der MPG entspricht.</p>
+
+<p>Nach der Neugründung des MPI-MMG überstiegen die jährlichen Wachstumsraten diesen Wert sehr deutlich für mehr als ein Jahrzehnt. In den ersten drei Jahren erreichten sie über 20 Prozent und pendelten sich dann bei 9-10 Prozent ein.</p>
+
 <details id="detailsGrowth">
 <summary>📊 Detaildaten zum Bestandswachstum</summary>
 <div class="details-content"></div>
 </details>
 
-<div style="height: 100px;"></div>
-
 <script>
-// Der komplette JavaScript-Code bleibt unverändert aus der funktionierenden Version
 // Check if required data is loaded
 if (typeof ACQUISITION_DATA === 'undefined') {
   console.error('❌ Data not loaded! Please check shared/data.js');
@@ -338,7 +362,7 @@ function initChart1(type = 'line') {
         spanGaps: false
       },
       {
-        label: 'MPI Diversity (2021-2024): saturiert & nur 1 Abteilung',
+        label: 'MPI Diversity (2021-2024): Corona & Bibliotheksbestand ausgelagert',
         data: ACQUISITION_DATA.map(d => PHASE3_DATA.find(p => p.year === d.year)?.value || null),
         borderColor: '#dc3545',
         backgroundColor: type === 'bar' ? '#dc3545' : '#dc3545',

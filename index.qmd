@@ -1,6 +1,6 @@
 ---
-title: "MPI Bibliothek Dashboard"
-subtitle: "Dashboard - Erwerbungen und Bestandsanalyse 2000-2024"
+title: "MPI-Bibliothek"
+subtitle: "Dashboard für Erwerbungen & Bestandsanalyse (2000-2024)"
 author: "Thomas Gerdes"
 date: "2025-08-15"
 format:
@@ -21,178 +21,21 @@ format:
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
           <script src="shared/data.js"></script>
           <script src="shared/functions.js"></script>
-          <title>MPI Bibliothek Dashboard</title>
+          <title>MPI-Bibliothek></title>
 ---
 
 <div style="height: 40px;"></div>
 
-## Bereiche
+## Einleitung
 
-```{=html}
-<!-- Section Cards -->
-<div class="section-card">
-  <h3 class="section-title">📈 Erwerbungen</h3>
-  <p class="section-description">
-    Detaillierte Analyse der Print- und Ebook-Erwerbungen von 2000-2024. 
-    Enthält Zeitreihenanalysen, Phasenvergleiche und Wachstumsraten.
-  </p>
-  <a href="erwerbungen.html" class="section-link">Erwerbungen analysieren →</a>
-</div>
+Das MPI für Geschichte bestand in Göttingen bis 2007. Im Jahr darauf wurde dort das [MPI zur Erforschung multireligiöser und multiethnischer Gesellschaften](https://www.mmg.mpg.de/startseite) (MPI-MMG) gegründet. Dieses Dashboard deckt die Entwicklung der Institutsbibliothek vom Jahr 2000 bis 2024 ab.
 
-<div style="height: 10px;"></div>
+Die ersten Jahre zeigen eine saturierte Geschichtsbibliothek mit moderatem Wachstum. Die Jahre 2006 und 2007 markieren eine Phase der Neuorientierung und des institutionellen Übergangs.
 
-<div class="section-card">
-  <h3 class="section-title">📚 Bestand</h3>
-  <p class="section-description">
-    Umfassende Bestandsanalyse mit Fachgebietsverteilung, Entwicklungstrends 
-    und Medientypvergleichen für den gesamten Bibliotheksbestand.
-  </p>
-  <a href="bestand.html" class="section-link">Bestand erkunden →</a>
-</div>
+Von 2008 bis 2020 durchlief die neu gegründete MPI-MMG-Bibliothek eine Phase intensiven Bestandsaufbaus. Die thematische Neuausrichtung des Instituts erforderte umfangreiche Neuanschaffungen, die zu außergewöhnlich hohen jährlichen Wachstumsraten von  bis zu 22 Prozent führten.
 
-<div style="height: 100px;"></div>
+Ab 2019 befand sich die Bibliothek in einer  Sondersituation: Zwei Forschungsabteilungen wurden geschlossen, das Bibliotheksgebäude war gesperrt und der Bestand zunächst nicht zugänglich, später ausgelagert. Zusätzlich verhinderte die Corona-Pandemie ab 2020 die Präsenznutzung der Bibliothek. Die Jahre 2023 und vor allem 2024 markieren schließlich den Beginn einer neuen Phase geprägt von der bevorstehenden Schließung des MPI-MMG und einer erneuten institutionellen Neuorientierung.
 
-<script>
-// Update key statistics
-function updateOverviewStats() {
-  document.getElementById('totalBooks').textContent = formatNumber(TOTAL_BOOKS);
-  document.getElementById('totalEbooks').textContent = formatNumber(TOTAL_EBOOKS);
-  document.getElementById('totalCollection').textContent = formatNumber(TOTAL_COLLECTION);
-  document.getElementById('totalAcquisitions').textContent = formatNumber(TOTAL_ACQUISITIONS);
-}
+Diese Seiten ermöglichen detaillierte Einblicke in die [Entwicklung des Bestands](erwerbungen.qmd) sowie die [fachlichen Schwerpunkte des aktuellen Bestands](bestand.qmd).
 
-// Initialize overview chart showing both stock and acquisitions
-function initOverviewChart() {
-  const ctx = document.getElementById('overviewChart').getContext('2d');
-  
-  if (overviewChart) { 
-    overviewChart.destroy(); 
-  }
-
-  const config = {
-    type: 'line',
-    data: {
-      labels: STOCK_DATA.map(d => d.year),
-      datasets: [
-        {
-          label: 'Print-Bestand',
-          data: STOCK_DATA.map(d => d.value),
-          borderColor: '#007bff',
-          backgroundColor: '#007bff20',
-          borderWidth: 3,
-          pointRadius: 3,
-          yAxisID: 'y',
-          fill: true
-        },
-        {
-          label: 'Print-Erwerbungen',
-          data: ACQUISITION_DATA.map(d => d.value),
-          borderColor: '#28a745',
-          backgroundColor: '#28a745',
-          borderWidth: 2,
-          pointRadius: 2,
-          yAxisID: 'y1',
-          type: 'bar'
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      accessibility: {
-        announceNewData: {
-          enabled: true
-        }
-      },
-      scales: {
-        x: { 
-          title: { display: true, text: 'Jahr', font: { size: 12 } }, 
-          ticks: { font: { size: 10 } } 
-        },
-        y: {
-          type: 'linear',
-          display: true,
-          position: 'left',
-          title: { display: true, text: 'Bestand (Anzahl Bücher)', font: { size: 12 } },
-          ticks: { font: { size: 10 } }
-        },
-        y1: {
-          type: 'linear',
-          display: true,
-          position: 'right',
-          title: { display: true, text: 'Erwerbungen pro Jahr', font: { size: 12 } },
-          ticks: { font: { size: 10 } },
-          grid: {
-            drawOnChartArea: false,
-          },
-        }
-      },
-      plugins: { 
-        legend: { 
-          display: true, 
-          position: 'bottom', 
-          labels: { 
-            boxWidth: 15, 
-            padding: 15, 
-            font: { size: 11 }, 
-            usePointStyle: true 
-          } 
-        },
-        tooltip: {
-          mode: 'index',
-          intersect: false,
-          callbacks: {
-            title: (context) => `Jahr ${context[0].label}`,
-            label: (context) => {
-              const value = formatNumber(context.parsed.y);
-              return `${context.dataset.label}: ${value}`;
-            }
-          }
-        }
-      },
-      interaction: { intersect: false, mode: 'index' }
-    }
-  };
-  
-  overviewChart = new Chart(ctx, config);
-  announceToScreenReader('Übersichtsdiagramm wurde geladen');
-}
-
-// Initialize dashboard
-function initializeOverview() {
-  try {
-    console.log('🚀 Initializing Overview Dashboard...');
-    
-    // Update statistics
-    updateOverviewStats();
-    
-    // Initialize chart
-    initOverviewChart();
-    
-    // Initialize common functionality
-    initDashboard([overviewChart]);
-    
-    console.log('✅ Overview initialization complete');
-    
-  } catch (error) {
-    console.error('❌ Overview initialization failed:', error);
-    announceToScreenReader('Fehler beim Laden der Übersicht');
-  }
-}
-
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeOverview);
-} else {
-  initializeOverview();
-}
-
-// Fallback initialization
-window.addEventListener('load', function() {
-  if (!overviewChart) {
-    console.log('🔄 Re-initializing overview chart...');
-    initializeOverview();
-  }
-});
 </script>
-```

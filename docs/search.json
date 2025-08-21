@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "index.html#bereiche",
-    "href": "index.html#bereiche",
-    "title": "MPI Bibliothek Dashboard",
-    "section": "Bereiche",
-    "text": "Bereiche\n\n\n  📈 Erwerbungen\n  \n    Detaillierte Analyse der Print- und Ebook-Erwerbungen von 2000-2024. \n    Enthält Zeitreihenanalysen, Phasenvergleiche und Wachstumsraten.\n  \n  Erwerbungen analysieren →\n\n\n\n\n\n  📚 Bestand\n  \n    Umfassende Bestandsanalyse mit Fachgebietsverteilung, Entwicklungstrends \n    und Medientypvergleichen für den gesamten Bibliotheksbestand.\n  \n  Bestand erkunden →"
+    "objectID": "index.html#einleitung",
+    "href": "index.html#einleitung",
+    "title": "MPI-Bibliothek",
+    "section": "Einleitung",
+    "text": "Einleitung\nDas MPI für Geschichte bestand in Göttingen bis 2007. Im Jahr darauf wurde dort das MPI zur Erforschung multireligiöser und multiethnischer Gesellschaften (MPI-MMG) gegründet. Dieses Dashboard deckt die Entwicklung der Institutsbibliothek vom Jahr 2000 bis 2024 ab.\nDie ersten Jahre zeigen eine saturierte Geschichtsbibliothek mit moderatem Wachstum. Die Jahre 2006 und 2007 markieren eine Phase der Neuorientierung und des institutionellen Übergangs.\nVon 2008 bis 2020 durchlief die neu gegründete MPI-MMG-Bibliothek eine Phase intensiven Bestandsaufbaus. Die thematische Neuausrichtung des Instituts erforderte umfangreiche Neuanschaffungen, die zu außergewöhnlich hohen jährlichen Wachstumsraten von bis zu 22 Prozent führten.\nAb 2019 befand sich die Bibliothek in einer Sondersituation: Zwei Forschungsabteilungen wurden geschlossen, das Bibliotheksgebäude war gesperrt und der Bestand zunächst nicht zugänglich, später ausgelagert. Zusätzlich verhinderte die Corona-Pandemie ab 2020 die Präsenznutzung der Bibliothek. Die Jahre 2023 und vor allem 2024 markieren schließlich den Beginn einer neuen Phase geprägt von der bevorstehenden Schließung des MPI-MMG und einer erneuten institutionellen Neuorientierung.\nDiese Seiten ermöglichen detaillierte Einblicke in die Entwicklung des Bestands sowie die fachlichen Schwerpunkte des aktuellen Bestands."
   },
   {
     "objectID": "bestand.html#bestandsentwicklung-print-bücher",
     "href": "bestand.html#bestandsentwicklung-print-bücher",
     "title": "Bestand",
     "section": "Bestandsentwicklung (Print-Bücher)",
-    "text": "Bestandsentwicklung (Print-Bücher)\n\n  Bestand 2000-2024\n  \n  \n    \n      -\n      Aktueller Bestand 2024\n    \n    \n      -\n      Gesamtwachstum\n    \n    \n      -\n      ⌀ Wachstum/Jahr\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\n\n📊 Detaildaten zur Bestandsentwicklung (Print)"
+    "text": "Bestandsentwicklung (Print-Bücher)\n\n  Bestand 2000-2024\n  \n  \n  \n    -\n    Aktueller Bestand 2024\n  \n\n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\nIm Jahr 2008 wurden aus dem Bestand des MPI für Geschichte 8.096 Print-Bücher in die Bibliothek des MPI-MMG übernommen. Das entspricht ca. 7 Prozent des vormaligen Gestamtbestands.\n\n\n📊 Detaildaten zur Bestandsentwicklung (Print)"
   },
   {
     "objectID": "bestand.html#bestandsverteilung-nach-fachgebieten-print-bücher",
@@ -25,7 +25,7 @@
     "href": "bestand.html#bestandsverteilung-nach-fachgebieten-ebooks",
     "title": "Bestand",
     "section": "Bestandsverteilung nach Fachgebieten (Ebooks)",
-    "text": "Bestandsverteilung nach Fachgebieten (Ebooks)\nDie Bestandsverteilung für Ebooks ist aus den Daten nicht direkt ableitbar, da sie keine fachgebietsbezogenen Signaturen haben. Die Erwerbungshistorie legt jedoch nahe, dass die Aufteilung hier thematisch annähernd der des Printbestands entspricht, d.h. einen deutlichen Schwerpunkt im Bereich Sozial- und Kulturanthropologie hat."
+    "text": "Bestandsverteilung nach Fachgebieten (Ebooks)\n\nDie fachliche Verteilung der Ebooks lässt sich aus den Daten nicht direkt ermitteln, da Ebooks im Gegensatz zu gedruckten Büchern keine fachgebietsspezifischen Signaturen erhalten. Die Erwerbungshistorie deutet jedoch darauf hin, dass die thematische Aufteilung der Ebooks weitgehend der des Printbestands entspricht und somit ebenfalls einen klaren Schwerpunkt im Bereich der Sozial- und Kulturanthropologie aufweist."
   },
   {
     "objectID": "bestand.html#gesamtbestand",
@@ -39,20 +39,20 @@
     "href": "erwerbungen.html#print-bücher",
     "title": "Erwerbungen",
     "section": "Print-Bücher",
-    "text": "Print-Bücher\n\n\n  Zuwachs Bestand 2000-2024\n  \n  \n    \n      -\n      Gesamterwerbungen\n    \n    \n      -\n      Durchschnitt/Jahr\n    \n    \n      -\n      Höchstwert\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n  \n  \n    \n      -\n      ⌀ Phase 1 (2000-2007)\n    \n    \n      -\n      ⌀ Phase 2 (2008-2020)\n    \n    \n      -\n      ⌀ Phase 3 (2021-2024)\n    \n  \n\n\n\n📊 Detaildaten zur Erwerbungsentwicklung (Print)"
+    "text": "Print-Bücher\n\n\n  Zuwachs Bestand 2000-2024\n  \n  \n    \n      -\n      Gesamterwerbungen\n    \n    \n      -\n      Durchschnitt/Jahr\n    \n    \n      -\n      Höchstwert\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n  \n  \n    \n      -\n      ⌀ Phase 1 (2000-2007)\n    \n    \n      -\n      ⌀ Phase 2 (2008-2020)\n    \n    \n      -\n      ⌀ Phase 3 (2021-2024)\n    \n  \n\n\nDie Bibliothek durchlief ab 2019 eine außergewöhnliche Phase mit erheblichen strukturellen Veränderungen. \n  \nZunächst wurde 2019 eine der drei Forschungsabteilungen geschlossen, gefolgt von der Schließung einer zweiten Abteilung im Jahr 2021. Parallel dazu führten 2019 festgestellte Baumängel im Gebäude der Institutsbibliothek dazu, dass diese für Wissenschaftler*innen vor Ort nicht mehr zugänglich war. Erst seit Herbst 2022 steht der Bestand wieder – allerdings mit reduzierten Öffnungszeiten – für die Präsenznutzung zur Verfügung, jedoch außerhalb des Instituts.\n\nDie Corona-Pandemie ab 2020 verstärkte diese Problematik zusätzlich. Ab 2023/24 begann die Phase einer institutionellen Neuausrichtung.\n\nAufgrund dieser außergewöhnlichen Umstände sind die Zuwachszahlen der Jahre 2021 bis 2024 nicht als repräsentativ für die typische Bestandsentwicklung einer Max-Planck-Institutsbibliothek zu bewerten.\n\n\n📊 Detaildaten zur Erwerbungsentwicklung (Print)"
   },
   {
     "objectID": "erwerbungen.html#ebooks",
     "href": "erwerbungen.html#ebooks",
     "title": "Erwerbungen",
     "section": "Ebooks",
-    "text": "Ebooks\n\n\n\n  Zuwachs Bestand 2000-2024\n  \n  \n    \n      -\n      Gesamterwerbungen\n    \n    \n      -\n      Durchschnitt/Jahr\n    \n    \n      -\n      Höchstwert\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\n\n📊 Detaildaten zur Ebook-Erwerbungsentwicklung"
+    "text": "Ebooks\n\n\n\n  Zuwachs Bestand 2000-2024\n  \n  \n    \n      -\n      Gesamterwerbungen\n    \n    \n      -\n      Durchschnitt/Jahr\n    \n    \n      -\n      Höchstwert\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\nWährend der Corona-Zeit begann die Bibliothek, im signifikanten Ausmaß Ebooks zu erwerben. Allerdings blieben die Erwerbungszahlen mit einem Peak von 131 (2021) sehr gering und substituierten nicht annähernd die Print-Erwerbungszahlen früherer Jahre. \n\nIm sozialwissenschaftlichen Bereich ist nur ein Teil der relevanten Publikationen als Ebook verfügbar. Die Fachkultur ist gleichzeitig noch relativ stark von Monografien und Print-Publikationen geprägt. Ebooks sind für Bibliotheken in der Erwerbung zudem deutlich teurer als die entsprechenden Print-Ausgaben und Forschende bemängeln oftmals deren verlagsseitig festgelegten Nutzungsbegrenzungen.\n\n\n📊 Detaildaten zur Ebook-Erwerbungsentwicklung"
   },
   {
     "objectID": "erwerbungen.html#wachstumsanalyse",
     "href": "erwerbungen.html#wachstumsanalyse",
     "title": "Erwerbungen",
     "section": "Wachstumsanalyse",
-    "text": "Wachstumsanalyse\n\n\n\n  Prozentuales Wachstum\n  Print-Bücher 2000-2024\n  \n  \n    \n      -\n      ⌀ Wachstumsrate (%)\n    \n    \n      -\n      Höchste Wachstumsrate (%)\n    \n    \n      -\n      Jahre mit Wachstum\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\n\n📊 Detaildaten zum Bestandswachstum"
+    "text": "Wachstumsanalyse\n\n\n\n  Prozentuales Wachstum\n  Print-Bücher 2000-2024\n  \n  \n    \n      -\n      ⌀ Wachstumsrate (%)\n    \n    \n      -\n      Höchste Wachstumsrate (%)\n    \n    \n      -\n      Jahre mit Wachstum\n    \n  \n\n  \n    Liniendiagramm\n    Balkendiagramm\n    PNG Download\n  \n\n  \n    \n  \n\n\nIn der Phase der saturierten Bibliothek des MPI für Geschichte lagen die jährlichen prozentualen Wachstumsraten des Bestands bei leicht über 2 Prozent, was den Annahmen des HIS-HE in seiner gutachterlichen Stellungnahme zu \"Sonderfläche Bibliotheken: Empirische Erhebung der Institutsbibliotheken & Planungsempfehlungen\" (2023) für Bibliotheken der GSH-Sektion in der MPG entspricht.\n\nNach der Neugründung des MPI-MMG überstiegen die jährlichen Wachstumsraten diesen Wert sehr deutlich für mehr als ein Jahrzehnt. In den ersten drei Jahren erreichten sie über 20 Prozent und pendelten sich dann bei 9-10 Prozent ein.\n\n\n📊 Detaildaten zum Bestandswachstum"
   }
 ]

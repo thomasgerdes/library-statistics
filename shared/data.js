@@ -7,9 +7,9 @@ Version: 2.0.0 | Last updated: August 2025
 
 // ===== MASTER DATA SOURCES =====
 const ACQUISITION_DATA = [
-  { year: 2000, value: 328 }, { year: 2001, value: 381 }, { year: 2002, value: 296 },
-  { year: 2003, value: 207 }, { year: 2004, value: 433 }, { year: 2005, value: 354 },
-  { year: 2006, value: 222 }, { year: 2007, value: 504 }, { year: 2008, value: 2106 },
+  { year: 2000, value: 2222 }, { year: 2001, value: 3066 }, { year: 2002, value: 2417 },
+  { year: 2003, value: 2147 }, { year: 2004, value: 3185 }, { year: 2005, value: 2559 },
+  { year: 2006, value: 1763 }, { year: 2007, value: 1772 }, { year: 2008, value: 2106 },
   { year: 2009, value: 3114 }, { year: 2010, value: 3742 }, { year: 2011, value: 3568 },
   { year: 2012, value: 1880 }, { year: 2013, value: 2655 }, { year: 2014, value: 2802 },
   { year: 2015, value: 2580 }, { year: 2016, value: 2928 }, { year: 2017, value: 3042 },
@@ -31,15 +31,15 @@ const EBOOK_ACQUISITION_DATA = [
 ];
 
 const STOCK_DATA = [
-  { year: 2000, value: 5704 }, { year: 2001, value: 6032 }, { year: 2002, value: 6413 },
-  { year: 2003, value: 6709 }, { year: 2004, value: 6916 }, { year: 2005, value: 7349 },
-  { year: 2006, value: 7703 }, { year: 2007, value: 7925 }, { year: 2008, value: 8429 },
-  { year: 2009, value: 10535 }, { year: 2010, value: 13649 }, { year: 2011, value: 17391 },
-  { year: 2012, value: 20959 }, { year: 2013, value: 22839 }, { year: 2014, value: 25494 },
-  { year: 2015, value: 28296 }, { year: 2016, value: 30876 }, { year: 2017, value: 33804 },
-  { year: 2018, value: 36846 }, { year: 2019, value: 40657 }, { year: 2020, value: 43128 },
-  { year: 2021, value: 45281 }, { year: 2022, value: 45955 }, { year: 2023, value: 46131 }, 
-  { year: 2024, value: 46320 }
+  { year: 2000, value: 98154 }, { year: 2001, value: 100376 }, { year: 2002, value: 103442 },
+  { year: 2003, value: 105859 }, { year: 2004, value: 108006 }, { year: 2005, value: 111191 },
+  { year: 2006, value: 113750 }, { year: 2007, value: 115513 }, { year: 2008, value: 10202 },
+  { year: 2009, value: 13316 }, { year: 2010, value: 17058 }, { year: 2011, value: 20626 },
+  { year: 2012, value: 22506 }, { year: 2013, value: 25161 }, { year: 2014, value: 27963 },
+  { year: 2015, value: 30534 }, { year: 2016, value: 33471 }, { year: 2017, value: 36513 },
+  { year: 2018, value: 40324 }, { year: 2019, value: 42795 }, { year: 2020, value: 44948 },
+  { year: 2021, value: 45622 }, { year: 2022, value: 45798 }, { year: 2023, value: 45987 }, 
+  { year: 2024, value: 46196 }
 ];
 
 const SUBJECT_DATA = [
