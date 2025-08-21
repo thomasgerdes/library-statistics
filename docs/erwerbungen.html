@@ -476,7 +476,7 @@ function initChart1(type = 'line') {
         spanGaps: false
       },
       {
-        label: 'MPI Diversity (2008-2020): Bibliothek im Aufbau',
+        label: 'MPI-MMG (2008-2020): Bibliothek im Aufbau',
         data: ACQUISITION_DATA.map(d => PHASE2_DATA.find(p => p.year === d.year)?.value || null),
         borderColor: '#28a745',
         backgroundColor: type === 'bar' ? '#28a745' : '#28a745',
@@ -485,7 +485,7 @@ function initChart1(type = 'line') {
         spanGaps: false
       },
       {
-        label: 'MPI Diversity (2021-2024): Corona & Bibliotheksbestand ausgelagert',
+        label: 'MPI-MMG (2021-2024): Corona & Bibliotheksbestand ausgelagert',
         data: ACQUISITION_DATA.map(d => PHASE3_DATA.find(p => p.year === d.year)?.value || null),
         borderColor: '#dc3545',
         backgroundColor: type === 'bar' ? '#dc3545' : '#dc3545',
