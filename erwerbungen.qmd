@@ -1,6 +1,6 @@
 ---
 title: "Erwerbungen"
-subtitle: "Print- und Ebook-Erwerbungen (2000-2024)"
+subtitle: "Print- und Ebook-Erwerbungen"
 author: "Thomas Gerdes [![ORCID](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8524-5987){target=\"_blank\"}"
 date: "2025-08-15"
 format:
@@ -134,7 +134,7 @@ format:
 ```{=html}
 <!-- Print-Bücher Erwerbungen -->
 <div class="chart-container">
-  <h2 class="chart-title">Zuwachs Bestand</h2>
+  <h2 class="chart-title">Zuwachs 2000-2024</h2>
   
   <div class="info-box-container" style="margin: 15px 0;">
     <div class="info-box blue">
@@ -209,7 +209,7 @@ format:
 
 <!-- Ebook Erwerbungen -->
 <div class="chart-container">
-  <h2 class="chart-title">Zuwachs Bestand</h2>
+  <h2 class="chart-title">Zuwachs 2000-2024</h2>
   
   <div class="info-box-container" style="margin: 15px 0;">
     <div class="info-box blue">
@@ -259,14 +259,13 @@ format:
 ::: {style="height: 40px;"}
 :::
 
-## Wachstumsanalyse
+## Bestandswachstum (Print-Bücher)
 
 ```{=html}
 
 <!-- Wachstumsanalyse -->
 <div class="chart-container">
-  <h2 class="chart-title">Prozentuales Wachstum</h2>
-  <p style="text-align: center; color: #666; margin: 0 0 20px 0; font-size: 16px;">Print-Bücher</p>
+  <h2 class="chart-title">Zuwachs 2000-2024 (Prozent/Jahr)</h2>
   
   <div class="info-box-container" style="margin: 15px 0;">
     <div class="info-box green">

@@ -149,18 +149,18 @@ body {
 </style>
 ```
 
-<div style="height: 40px;"></div>
+::: {style="height: 40px;"}
+:::
 
-## Bestandsentwicklung (Print-Bücher)
+## Bestandsentwicklung 2000-2024 (Print-Bücher)
 
 ```{=html}
 <div class="chart-container">
-  <h2 class="chart-title">Bestand 2000-2024</h2>
-  
+
   <div class="info-box-container" style="margin: 15px 0;">
   <div class="info-box blue">
     <div class="info-box-value" id="currentStockPrint" aria-live="polite">-</div>
-    <div class="info-box-label">Aktueller Bestand 2024</div>
+    <div class="info-box-label">Bestand 31.12.2024</div>
   </div>
 </div>
 
@@ -187,26 +187,26 @@ body {
 <p>Im Jahr 2008 wurden aus dem Bestand des MPI für Geschichte 8.096 Print-Bücher in die Bibliothek des MPI-MMG übernommen. Das entspricht ca. 7 Prozent des vormaligen Gestamtbestands.</p>
 
 <details id="detailsStock">
-<summary>📊 Detaildaten zur Bestandsentwicklung (Print)</summary>
+<summary>📊 Detaildaten zur Bestandsentwicklung (Print-Bücher)</summary>
 <div class="details-content">
 </div>
 </details>
 ```
 
-<div style="height: 40px;"></div>
+::: {style="height: 40px;"}
+:::
 
----
+------------------------------------------------------------------------
 
 ## Bestandsverteilung nach Fachgebieten (Print-Bücher)
 
 ```{=html}
 <div class="chart-container">
-  <h2 class="chart-title">Bestand 2025</h2>
   
   <div style="display: flex; justify-content: center; margin: 15px 0;">
     <div class="info-box blue" style="flex: none;">
       <div class="info-box-value" id="totalBooks" aria-live="polite">-</div>
-      <div class="info-box-label">Print-Bücher (gesamt)</div>
+      <div class="info-box-label">Bestand 15.08.2025</div>
     </div>
   </div>
 
@@ -231,34 +231,35 @@ body {
 </div>
 
 <details id="details2">
-<summary>📋 Detaillierte Bestandsaufschlüsselung (Print)</summary>
+<summary>📋 Detaildaten zur Bestandsaufschlüsselung (Print)</summary>
 <div class="details-content">
 </div>
 </details>
 ```
-<div style="height: 40px;"></div>
 
----
+::: {style="height: 40px;"}
+:::
+
+------------------------------------------------------------------------
 
 ## Bestandsverteilung nach Fachgebieten (Ebooks)
 
 <p>Die fachliche Verteilung der Ebooks lässt sich aus den Daten nicht direkt ermitteln, da Ebooks im Gegensatz zu gedruckten Büchern keine fachgebietsspezifischen Signaturen erhalten. Die Erwerbungshistorie deutet jedoch darauf hin, dass die thematische Aufteilung der Ebooks weitgehend der des Printbestands entspricht und somit ebenfalls einen klaren Schwerpunkt im Bereich der Sozial- und Kulturanthropologie aufweist.</p>
 
-<div style="height: 40px;"></div>
+::: {style="height: 40px;"}
+:::
 
----
+------------------------------------------------------------------------
 
 ## Gesamtbestand
 
 ```{=html}
 <div class="chart-container">
-  <h2 class="chart-title">Gesamtbestand 2025</h2>
-  <p style="text-align: center; color: #666; margin: 0 0 20px 0; font-size: 14px;">Aufteilung nach Medientypen</p>
   
   <div style="display: flex; justify-content: center; margin: 15px 0;">
     <div class="info-box blue" style="flex: none;">
       <div class="info-box-value" id="totalCollection" aria-live="polite">-</div>
-      <div class="info-box-label">Gesamtbestand</div>
+      <div class="info-box-label">Gesamtbestand 15.08.2025</div>
     </div>
   </div>
 
@@ -283,7 +284,7 @@ body {
 </div>
 
 <details id="details3">
-<summary>📊 Detaillierte Bestandsaufschlüsselung</summary>
+<summary>📊 Detaildaten zur Bestandsaufschlüsselung</summary>
 <div class="details-content">
 </div>
 </details>

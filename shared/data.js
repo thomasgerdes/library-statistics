@@ -49,7 +49,7 @@ const SUBJECT_DATA = [
   { signature: 'C', name: 'Philosophie', count: 3463 },
   { signature: 'MA-ML', name: 'Politologie', count: 2453 },
   { signature: 'N', name: 'Geschichte', count: 2328 },
-  { signature: 'R', name: 'Geografie', count: 1902 },
+  { signature: 'R', name: 'Geografie', count: 58 },
   { signature: 'P', name: 'Recht', count: 1873 },
   { signature: 'Ref', name: 'Referenz', count: 1844 },
   { signature: 'A', name: 'Allgemeines', count: 538 },
