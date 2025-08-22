@@ -2,7 +2,7 @@
 
 ## Overview
 
-This interactive dashboard visualizes library acquisitions and collection data for an institutional library. The visualization was created using Quarto with Chart.js and developed with AI assistance.
+This dashboard visualizes library acquisitions and collection data for an institutional library. The visualization was created using Quarto with Chart.js and developed with AI assistance.
 
 ## What it shows
 
