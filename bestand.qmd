@@ -23,134 +23,18 @@ format:
           <script src="shared/functions.js"></script>
 ---
 
-```{=html}
-<style>
-.quarto-container {
-  max-width: 1400px !important;
-}
-body {
-  margin: 0 20px;
-}
-
-.dashboard-nav {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  text-align: center;
-}
-
-.dashboard-nav a {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 0 5px;
-  background: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.2s ease;
-}
-
-.dashboard-nav a:hover {
-  background: #0056b3;
-  color: white;
-}
-
-.dashboard-nav a.active {
-  background: #28a745;
-}
-
-.info-box-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.info-box {
-  background: #f8f9fa;
-  padding: 12px;
-  border-radius: 6px;
-  text-align: center;
-  flex: 1 1 200px;
-  min-width: 200px;
-  max-width: 250px;
-}
-
-@media (max-width: 768px) {
-  .info-box {
-    flex: 1 1 calc(50% - 5px);
-    min-width: calc(50% - 5px);
-    max-width: calc(50% - 5px);
-  }
-}
-
-@media (max-width: 480px) {
-  .info-box {
-    flex: 1 1 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
-}
-
-.info-box-value {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.info-box-label {
-  font-size: 12px;
-  color: #666;
-  margin-top: 3px;
-}
-
-.info-box.blue { border-left: 3px solid #007bff; }
-.info-box.blue .info-box-value { color: #007bff; }
-.info-box.gray { border-left: 3px solid #6c757d; }
-.info-box.gray .info-box-value { color: #6c757d; }
-.info-box.green { border-left: 3px solid #28a745; }
-.info-box.green .info-box-value { color: #28a745; }
-.info-box.red { border-left: 3px solid #dc3545; }
-.info-box.red .info-box-value { color: #dc3545; }
-
-.dashboard-button {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  font-size: 12px;
-  transition: background-color 0.2s ease;
-}
-
-.dashboard-button:hover {
-  opacity: 0.9;
-}
-
-.dashboard-button:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-}
-
-.chart-container {
-  background: white;
-  padding: 20px;
-  margin: 30px 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.chart-title {
-  color: #333;
-  text-align: center;
-  margin: 10px 0 5px 0;
-  font-size: 24px;
-}
-</style>
-```
-
 ::: {style="height: 40px;"}
 :::
+
+```{=html}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="shared/data.js"></script>
+<script src="shared/functions.js"></script>
+
+<style>
+/* Seitenspezifische Styles - alle gemeinsamen Styles sind in shared/styles.css */
+</style>
+```
 
 ## Bestandsentwicklung 2000-2024 (Print-Bücher)
 
@@ -187,7 +71,7 @@ body {
 <p>Im Jahr 2008 wurden aus dem Bestand des MPI für Geschichte 8.096 Print-Bücher in die Bibliothek des MPI-MMG übernommen. Das entspricht ca. 7 Prozent des vormaligen Gestamtbestands.</p>
 
 <details id="detailsStock">
-<summary>📊 Detaildaten zur Bestandsentwicklung (Print-Bücher)</summary>
+<summary>Detaildaten zur Bestandsentwicklung (Print-Bücher)</summary>
 <div class="details-content">
 </div>
 </details>
@@ -231,7 +115,7 @@ body {
 </div>
 
 <details id="details2">
-<summary>📋 Detaildaten zur Bestandsaufschlüsselung (Print)</summary>
+<summary>Detaildaten zur Bestandsaufschlüsselung (Print-Bücher)</summary>
 <div class="details-content">
 </div>
 </details>
@@ -284,17 +168,19 @@ body {
 </div>
 
 <details id="details3">
-<summary>📊 Detaildaten zur Bestandsaufschlüsselung</summary>
+<summary>Detaildaten zur Bestandsaufschlüsselung</summary>
 <div class="details-content">
 </div>
 </details>
 
 <script>
+// Chart instances and state variables
 let chartStock, chart2, chart3;
 let currentChartTypeStock = 'line';
 let currentChartType2 = 'pie';
 let currentChartType3 = 'pie';
 
+// ===== STOCK DEVELOPMENT CHART =====
 function initChartStock(type = 'line') {
   const ctx = document.getElementById('stockChart').getContext('2d');
   
@@ -338,6 +224,7 @@ function downloadChartStock() {
   downloadChart(chartStock, 'bestandsentwicklung_2000-2024.png', 'Bestandsentwicklungsdiagramm');
 }
 
+// ===== SUBJECT DISTRIBUTION CHART =====
 function initChart2(type = 'pie') {
   const ctx = document.getElementById('subjectChart').getContext('2d');
   
@@ -357,6 +244,7 @@ function initChart2(type = 'pie') {
 
   const sortedData = [...SUBJECT_DATA].sort((a, b) => b.count - a.count);
   
+  // Create mapping for consistent colors
   const indexMapping = {};
   SUBJECT_DATA.forEach((item, index) => {
     indexMapping[`${item.signature}-${item.name}`] = index;
@@ -444,6 +332,7 @@ function downloadChart2() {
   downloadChart(chart2, 'bestand_sachgruppen_2025.png', 'Bestandsdiagramm');
 }
 
+// ===== TOTAL COLLECTION CHART =====
 function initChart3(type = 'pie') {
   const ctx = document.getElementById('totalCollectionChart').getContext('2d');
   
@@ -531,6 +420,7 @@ function downloadChart3() {
   downloadChart(chart3, 'gesamtbestand_2025.png', 'Gesamtbestandsdiagramm');
 }
 
+// ===== UPDATE STATISTICS =====
 function updateStockStats() {
   document.getElementById('currentStockPrint').textContent = formatNumber(CURRENT_STOCK);
 }
@@ -543,6 +433,7 @@ function updateCollectionStats() {
   document.getElementById('totalCollection').textContent = formatNumber(TOTAL_COLLECTION);
 }
 
+// ===== GENERATE TABLES =====
 function generateTableStock() {
   const columns = [
     { field: 'year', title: 'Jahr' },
@@ -574,7 +465,6 @@ function generateTable2() {
 }
 
 function generateTable3() {
-  // Definiere die Daten hier lokal
   const collectionData = [
     { name: 'Print-Bücher', count: TOTAL_BOOKS }, 
     { name: 'Ebooks', count: TOTAL_EBOOKS },
@@ -601,45 +491,52 @@ function initTables() {
     document.querySelector('#detailsStock .details-content').innerHTML = generateTableStock();
     document.querySelector('#details2 .details-content').innerHTML = generateTable2();
     document.querySelector('#details3 .details-content').innerHTML = generateTable3();
-    console.log('📋 Collection tables initialized successfully');
+    console.log('Collection tables initialized successfully');
   } catch (error) {
     console.error('Error initializing collection tables:', error);
   }
 }
 
+// ===== INITIALIZATION =====
 function initializeCollection() {
   try {
-    console.log('🚀 Initializing Collection Dashboard...');
+    console.log('Initializing Collection Dashboard...');
     
+    // Update all statistics
     updateStockStats();
     updateSubjectStats();
     updateCollectionStats();
     
+    // Initialize all charts
     initChartStock();
     initChart2();
     initChart3();
     
+    // Initialize tables
     initTables();
     
+    // Initialize common dashboard functionality
     initDashboard([chartStock, chart2, chart3]);
     
-    console.log('✅ Collection initialization complete');
+    console.log('Collection initialization complete');
     
   } catch (error) {
-    console.error('❌ Collection initialization failed:', error);
+    console.error('Collection initialization failed:', error);
     announceToScreenReader('Fehler beim Laden der Bestandsanalyse');
   }
 }
 
+// Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeCollection);
 } else {
   initializeCollection();
 }
 
+// Fallback initialization
 window.addEventListener('load', function() {
   if (!chartStock || !chart2 || !chart3) {
-    console.log('🔄 Re-initializing collection charts...');
+    console.log('Re-initializing collection charts...');
     initializeCollection();
   }
 });

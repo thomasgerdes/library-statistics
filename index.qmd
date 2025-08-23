@@ -24,7 +24,8 @@ format:
           <title>MPI-Bibliothek></title>
 ---
 
-<div style="height: 40px;"></div>
+::: {style="height: 40px;"}
+:::
 
 ## Einleitung
 
@@ -32,9 +33,9 @@ Das MPI für Geschichte bestand in Göttingen bis 2007. Im Jahr darauf wurde dor
 
 Die ersten Jahre zeigen eine saturierte Geschichtsbibliothek mit moderatem Wachstum. Die Jahre 2006 und 2007 markieren eine Phase der Neuorientierung und des institutionellen Übergangs.
 
-Von 2008 bis 2020 durchlief die neu gegründete MPI-MMG-Bibliothek eine Phase intensiven Bestandsaufbaus. Die thematische Neuausrichtung des Instituts erforderte umfangreiche Neuanschaffungen, die zu außergewöhnlich hohen jährlichen Wachstumsraten von  bis zu 22 Prozent führten.
+Von 2008 bis 2020 durchlief die neu gegründete MPI-MMG-Bibliothek eine Phase intensiven Bestandsaufbaus. Die thematische Neuausrichtung des Instituts erforderte umfangreiche Neuanschaffungen, die zu außergewöhnlich hohen jährlichen Wachstumsraten von bis zu 22 Prozent führten.
 
-Ab 2019 befand sich die Bibliothek in einer  Sondersituation: Zwei Forschungsabteilungen wurden geschlossen, das Bibliotheksgebäude war gesperrt und der Bestand zunächst nicht zugänglich, später ausgelagert. Zusätzlich verhinderte die Corona-Pandemie ab 2020 die Präsenznutzung der Bibliothek. Die Jahre 2023 und vor allem 2024 markieren schließlich den Beginn einer neuen Phase geprägt von der bevorstehenden Schließung des MPI-MMG und einer erneuten institutionellen Neuorientierung.
+Ab 2019 befand sich die Bibliothek in einer Sondersituation: Zwei Forschungsabteilungen wurden geschlossen, das Bibliotheksgebäude war gesperrt und der Bestand zunächst nicht zugänglich, später ausgelagert. Zusätzlich verhinderte die Corona-Pandemie ab 2020 die Präsenznutzung der Bibliothek. Die Jahre 2023 und vor allem 2024 markieren schließlich den Beginn einer neuen Phase geprägt von der bevorstehenden Schließung des MPI-MMG und einer erneuten institutionellen Neuorientierung.
 
 Diese Seiten ermöglichen detaillierte Einblicke in die [Entwicklung des Bestands](erwerbungen.qmd) sowie die [fachlichen Schwerpunkte des aktuellen Bestands](bestand.qmd).
 

@@ -30,109 +30,11 @@ format:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 <script src="shared/data.js"></script>
 <script src="shared/functions.js"></script>
-
-<style>
-/* CSS für alle verwendeten Klassen */
-.dashboard-nav {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  text-align: center;
-}
-
-.dashboard-nav a {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 0 5px;
-  background: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.2s ease;
-}
-
-.dashboard-nav a:hover {
-  background: #0056b3;
-  color: white;
-}
-
-.dashboard-nav a.active {
-  background: #28a745;
-}
-
-.chart-container {
-  background: white;
-  padding: 20px;
-  margin: 30px 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.chart-title {
-  color: #333;
-  text-align: center;
-  margin: 10px 0 5px 0;
-  font-size: 24px;
-}
-
-.info-box-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.info-box {
-  background: #f8f9fa;
-  padding: 12px;
-  border-radius: 6px;
-  text-align: center;
-  flex: 1 1 200px;
-  min-width: 200px;
-  max-width: 250px;
-}
-
-.info-box-value {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.info-box-label {
-  font-size: 12px;
-  color: #666;
-  margin-top: 3px;
-}
-
-.info-box.blue { border-left: 3px solid #007bff; }
-.info-box.blue .info-box-value { color: #007bff; }
-.info-box.gray { border-left: 3px solid #6c757d; }
-.info-box.gray .info-box-value { color: #6c757d; }
-.info-box.green { border-left: 3px solid #28a745; }
-.info-box.green .info-box-value { color: #28a745; }
-.info-box.red { border-left: 3px solid #dc3545; }
-.info-box.red .info-box-value { color: #dc3545; }
-
-.dashboard-button {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-  font-size: 12px;
-  transition: background-color 0.2s ease;
-}
-
-.dashboard-button:hover {
-  opacity: 0.9;
-}
-</style>
 ```
 
 ## Print-Bücher
 
 ```{=html}
-<!-- Print-Bücher Erwerbungen -->
 <div class="chart-container">
   <h2 class="chart-title">Zuwachs 2000-2024</h2>
   
@@ -195,7 +97,7 @@ format:
 <p>Aufgrund dieser außergewöhnlichen Umstände sind die Zuwachszahlen der Jahre 2021 bis 2024 nicht als repräsentativ für die typische Bestandsentwicklung einer Max-Planck-Institutsbibliothek zu bewerten.</p>
 
 <details id="details1">
-<summary>📊 Detaildaten zur Erwerbungsentwicklung (Print)</summary>
+<summary>Detaildaten zur Erwerbungsentwicklung (Print-Bücher)</summary>
 <div class="details-content"></div>
 </details>
 ```
@@ -206,8 +108,6 @@ format:
 ## Ebooks
 
 ```{=html}
-
-<!-- Ebook Erwerbungen -->
 <div class="chart-container">
   <h2 class="chart-title">Zuwachs 2000-2024</h2>
   
@@ -251,7 +151,7 @@ format:
 <p>Im sozialwissenschaftlichen Bereich ist nur ein Teil der relevanten Publikationen als Ebook verfügbar. Die Fachkultur ist gleichzeitig noch relativ stark von Monografien und Print-Publikationen geprägt. Ebooks sind für Bibliotheken in der Erwerbung zudem deutlich teurer als die entsprechenden Print-Ausgaben und Forschende bemängeln oftmals deren verlagsseitig festgelegten Nutzungsbegrenzungen.</p>
 
 <details id="detailsEbooks">
-<summary>📊 Detaildaten zur Ebook-Erwerbungsentwicklung</summary>
+<summary>Detaildaten zur Ebook-Erwerbungsentwicklung</summary>
 <div class="details-content"></div>
 </details>
 ```
@@ -262,8 +162,6 @@ format:
 ## Bestandswachstum (Print-Bücher)
 
 ```{=html}
-
-<!-- Wachstumsanalyse -->
 <div class="chart-container">
   <h2 class="chart-title">Zuwachs 2000-2024 (Prozent/Jahr)</h2>
   
@@ -302,23 +200,23 @@ format:
   </div>
 </div>
 
-<p>In der Phase der saturierten Bibliothek des MPI für Geschichte lagen die jährlichen prozentualen Wachstumsraten des Bestands bei leicht über 2 Prozent, was den Annahmen des HIS-HE in seiner gutachterlichen Stellungnahme zu "Sonderfläche Bibliotheken: Empirische Erhebung der Institutsbibliotheken & Planungsempfehlungen" (2023) für Bibliotheken der GSH-Sektion in der MPG entspricht.</p>
+<p>In der Phase der saturierten Bibliothek des MPI für Geschichte lagen die jährlichen prozentualen Wachstumsraten des Bestands bei leicht über 2 Prozent, was den Annahmen des HIS-HE in seiner gutachterlichen Stellungnahme zu <em>Sonderfläche Bibliotheken: Empirische Erhebung der Institutsbibliotheken & Planungsempfehlungen</em> (2023) für Bibliotheken der GSH-Sektion in der MPG entspricht.</p>
 
-<p>Nach der Neugründung des MPI-MMG überstiegen die jährlichen Wachstumsraten diesen Wert sehr deutlich für mehr als ein Jahrzehnt. In den ersten drei Jahren erreichten sie über 20 Prozent und pendelten sich dann bei 9-10 Prozent ein.</p>
+<p>Nach der Neugründung des MPI-MMG überstiegen die jährlichen Wachstumsraten diesen Wert sehr deutlich für mehr als ein Jahrzehnt. In den ersten drei Jahren erreichten sie <strong>über 20 Prozent</strong> und pendelten sich dann bei <strong>9-10 Prozent</strong> ein.</p>
 
 <details id="detailsGrowth">
-<summary>📊 Detaildaten zum Bestandswachstum</summary>
+<summary>Detaildaten zum Bestandswachstum</summary>
 <div class="details-content"></div>
 </details>
 
 <script>
 // Check if required data is loaded
 if (typeof ACQUISITION_DATA === 'undefined') {
-  console.error('❌ Data not loaded! Please check shared/data.js');
+  console.error('Data not loaded! Please check shared/data.js');
   document.body.innerHTML = '<div style="text-align: center; padding: 50px;"><h2>Fehler: Daten nicht gefunden</h2><p>Bitte prüfen Sie, ob die Datei shared/data.js korrekt geladen wurde.</p></div>';
 }
 
-// Chart instances
+// Chart instances and state variables
 let chart1, chartEbooks, chartGrowth;
 let currentChartType = 'line';
 let currentChartTypeEbooks = 'line';
@@ -328,7 +226,7 @@ let currentChartTypeGrowth = 'line';
 function initChart1(type = 'line') {
   const ctx = document.getElementById('acquisitionsChart');
   if (!ctx) {
-    console.error('❌ Canvas element acquisitionsChart not found');
+    console.error('Canvas element acquisitionsChart not found');
     return;
   }
   
@@ -394,7 +292,7 @@ function downloadChart1() {
 function initChartEbooks(type = 'line') {
   const ctx = document.getElementById('acquisitionsChartEbooks');
   if (!ctx) {
-    console.error('❌ Canvas element acquisitionsChartEbooks not found');
+    console.error('Canvas element acquisitionsChartEbooks not found');
     return;
   }
   
@@ -442,7 +340,7 @@ function downloadChartEbooks() {
 function initChartGrowth(type = 'line') {
   const ctx = document.getElementById('growthChart');
   if (!ctx) {
-    console.error('❌ Canvas element growthChart not found');
+    console.error('Canvas element growthChart not found');
     return;
   }
   
@@ -574,7 +472,7 @@ function initTables() {
     document.querySelector('#details1 .details-content').innerHTML = generateTable1();
     document.querySelector('#detailsEbooks .details-content').innerHTML = generateTableEbooks();
     document.querySelector('#detailsGrowth .details-content').innerHTML = generateTableGrowth();
-    console.log('📋 Acquisition tables initialized successfully');
+    console.log('Acquisition tables initialized successfully');
   } catch (error) {
     console.error('Error initializing acquisition tables:', error);
   }
@@ -583,7 +481,7 @@ function initTables() {
 // ===== INITIALIZATION =====
 function initializeAcquisitions() {
   try {
-    console.log('🚀 Initializing Acquisitions Dashboard...');
+    console.log('Initializing Acquisitions Dashboard...');
     
     // Check if data is available
     if (typeof ACQUISITION_DATA === 'undefined') {
@@ -603,13 +501,13 @@ function initializeAcquisitions() {
     // Initialize tables
     initTables();
     
-    // Initialize common functionality
+    // Initialize common dashboard functionality
     initDashboard([chart1, chartEbooks, chartGrowth]);
     
-    console.log('✅ Acquisitions initialization complete');
+    console.log('Acquisitions initialization complete');
     
   } catch (error) {
-    console.error('❌ Acquisitions initialization failed:', error);
+    console.error('Acquisitions initialization failed:', error);
     announceToScreenReader('Fehler beim Laden der Erwerbungsanalyse');
   }
 }
@@ -624,7 +522,7 @@ if (document.readyState === 'loading') {
 // Fallback initialization
 window.addEventListener('load', function() {
   if (!chart1 || !chartEbooks || !chartGrowth) {
-    console.log('🔄 Re-initializing acquisition charts...');
+    console.log('Re-initializing acquisition charts...');
     initializeAcquisitions();
   }
 });
