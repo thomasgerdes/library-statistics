@@ -10,6 +10,7 @@ This dashboard visualizes library acquisitions and collection data for an instit
 - **Collection Overview**: Current collection breakdown by subject areas and signature groups  
 - **Growth Analysis**: Percentage growth rates and development trends over 25 years
 - **Total Collection**: Complete inventory including books and bound journal volumes
+- **Forecasts**: Three scenarios for collection development 2026-2045
 
 ## Features
 
@@ -28,7 +29,7 @@ This dashboard visualizes library acquisitions and collection data for an instit
 - **Framework**: Built with Quarto Markdown for scientific publishing
 - **Visualization**: Chart.js 3.9.1 for interactive charts
 - **Styling**: Bootstrap Cosmo theme with custom CSS
-- **Architecture**: Multi-page website with shared data and functions
+- **Architecture**: Multi-page website with shared data and functions (acquisitions, collection, forecasts)
 - **Output**: Self-contained HTML with embedded resources
 - **Performance**: Optimized loading with modular JavaScript
 
