@@ -160,9 +160,11 @@ const SCENARIO_3_FINAL_STOCK = SCENARIO_3_DATA[19].printStock;
 
 ## Übersicht
 
-<p>Auf dieser Seite finden sich drei Szenarien für die Entwicklung des Print-Bestands der Bibliothek in den kommenden 20 Jahren.</p>
+<p>Auf dieser Seite sind drei Szenarien für die Entwicklung des Printbestands der Bibliothek in den kommenden 20 Jahren zu finden.</p>
 
-<p>Der aktuelle Anteil von Ebooks am Gesamtbestand beträgt <strong>0,7 Prozent</strong>. Die drei Szenarien gehen aus von einer <strong>sehr starken Erhöhung des Ebook-Anteils (10 Prozent)</strong> bei den Neuerwerbungen (2026-2035), einer <strong>fundamentalen Erhöhung (25 Prozent)</strong> sowie einer <strong>extremen Erhöhung (50 Prozent).</strong></p>  
+<p>Die Szenarien basieren auf der Annahme, dass sich das Bestandszuwachs in den ersten zehn Jahren nach der Institutsgründung am vergleichbaren Zeitraum nach der Gründung des Max-Planck-Instituts zur Erforschung multireligiöser und multiethnischer Gesellschaften (MPI-MMG) orientiert. Nach dieser Aufbauphase wird gemäß der Definition des HIS-HE mit einem Standardzuwachs im Printbereich von 2 Prozent pro Jahr gerechnet.</p>
+
+<p>Im MPI-MMG beträgt im Jahr 2025 der Anteil von Ebooks am Gesamtbestand <strong>0,7 Prozent</strong>. Die drei Szenarien erwarten, dass sich der Anteil von Ebooks bei den Neuerwerbungen deutlich erhöhen wird. Dabei wird jeweils von einer <strong>sehr starken Erhöhung des Ebook-Anteils (10 Prozent),</strong> einer <strong>fundamentalen Erhöhung (25 Prozent)</strong> sowie einer <strong>extremen Erhöhung (50 Prozent)</strong> ausgegangen.</p>
 
 ::: {style="height: 40px;"}
 :::
@@ -200,9 +202,7 @@ const SCENARIO_3_FINAL_STOCK = SCENARIO_3_DATA[19].printStock;
 </div>
 ```
 
-<p>Dieses Szenario beruht für die ersten 10 Jahre auf den Zuwachsraten des Printbestands in der Bibliothek des MPI zur Erforschung multireligiöser und multiethnischer Gesellschaften (MPI-MMG) in der Dekade nach der Institutsgründung. Für die folgenden Prognosejahre wird von dem durch die HIS-HE definierten Standard-Wachstum von 2 Prozent/Jahr ausgegangen.</p>
-
-<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>10 Prozent der Neuerwerbungen (2026-2035) als Ebook</strong> erfolgen. Dies repräsentiert einen sehr starken Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent (2025) am Gesamtbestand führten.</p>
+<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>10 Prozent der Neuerwerbungen als Ebook</strong> erfolgen. Dies repräsentiert einen sehr starken Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent am Gesamtbestand (2025) führten.</p>
 
 <p>Für die <strong>Budgetplanung</strong> ist zu beachten, dass eine Bibliothekslizenz für ein Ebook etwa dreimal so teuer ist wie die Print-Ausgabe. D.h. in diesem Szenario wäre bei gleichbleibender Gesamttitelzahl ein ca. 20 Prozent höheres Erwerbungsbudget notwendig.</p>
 
@@ -247,9 +247,7 @@ const SCENARIO_3_FINAL_STOCK = SCENARIO_3_DATA[19].printStock;
 </div>
 ```
 
-<p>Dieses Szenario beruht ebenfalls für die ersten 10 Jahre auf den Zuwachsraten des MPI-MMG nach seiner Gründung und die Folgejahre auf dem Standard-Wachstum von 2 Prozent/Jahr.</p>
-
-<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>25 Prozent der Neuerwerbungen als Ebook</strong> erfolgen. Dies repräsentiert einen fundamentalen Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent (2025) am Gesamtbestand führten.</p>
+<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>25 Prozent der Neuerwerbungen als Ebook</strong> erfolgen. Dies repräsentiert einen fundamentalen Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent am Gesamtbestand (2025) führten.</p>
 
 <p>Für die <strong>Budgetplanung</strong> ist zu beachten, dass in diesem Szenario bei gleichbleibender Gesamttitelzahl ein ca. 50 Prozent höheres Erwerbungsbudget notwendig wäre.</p>
 
@@ -294,9 +292,7 @@ const SCENARIO_3_FINAL_STOCK = SCENARIO_3_DATA[19].printStock;
 </div>
 ```
 
-<p>Dieses Szenario beruht ebenfalls für die ersten 10 Jahre auf den Zuwachsraten des MPI-MMG nach seiner Gründung und die Folgejahre auf dem Standard-Wachstum von 2 Prozent/Jahr.</p>
-
-<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>50 Prozent der Neuerwerbungen als Ebook</strong> erfolgen. Dies repräsentiert einen extremen Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent (2025) am Gesamtbestand führten.</p>
+<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>50 Prozent der Neuerwerbungen als Ebook</strong> erfolgen. Dies repräsentiert einen extremen Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent am Gesamtbestand (2025) führten.</p>
 
 <p>Für die <strong>Budgetplanung</strong> ist zu beachten, dass in diesem Szenario bei gleichbleibender Gesamttitelzahl ein ca. doppelt so hohes Erwerbungsbudget notwendig wäre.</p>
 
