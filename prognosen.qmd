@@ -1,0 +1,616 @@
+---
+title: "Prognosen"
+subtitle: "Erwerbungsszenarien 2026-2045"
+author: "Thomas Gerdes [![ORCID](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8524-5987){target=\"_blank\"}"
+date: "2025-08-15"
+format:
+  html:
+    toc: true
+    toc-float: true
+    code-fold: true
+    interactive: true
+    embed-resources: false
+    page-layout: full
+    lang: de
+    include-in-header:
+      - text: |
+          <meta name="author" content="Thomas Gerdes">
+          <meta name="description" content="Forecast models for MPI library collection development 2026-2045">
+          <meta name="keywords" content="library, forecasting, collection, growth, MPI, predictions">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+          <script src="shared/data.js"></script>
+          <script src="shared/functions.js"></script>
+---
+
+::: {style="height: 40px;"}
+:::
+
+```{=html}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="shared/data.js"></script>
+<script src="shared/functions.js"></script>
+
+<script>
+// Prognose-Daten basierend auf historischen Wachstumsraten 2008-2017
+const HISTORICAL_GROWTH_RATES = [20.64, 23.39, 21.94, 17.3, 8.35, 10.55, 10.02, 8.45, 8.75, 8.33];
+const BASE_STOCK_2025 = 46313;
+const INITIAL_EBOOK_STOCK = Math.round(BASE_STOCK_2025 * 0.007); // 0,7% Ebooks im Bestand 2025
+
+// Szenario 1: 10% der Neuerwerbungen als Ebooks
+const SCENARIO_1_DATA = [];
+let currentPrintStock1 = BASE_STOCK_2025;
+let currentEbookStock1 = INITIAL_EBOOK_STOCK;
+
+for (let i = 0; i < 20; i++) {
+  const year = 2026 + i;
+  const oldStock1 = currentPrintStock1;
+  let totalAcquisitions, printAcquisitions, ebookAcquisitions;
+  
+  if (i < 10) {
+    // Erste 10 Jahre: 100% der historischen Raten, aber 10% als Ebooks
+    const totalGrowthRate = HISTORICAL_GROWTH_RATES[i % 10];
+    totalAcquisitions = Math.round(oldStock1 * (totalGrowthRate / 100));
+    ebookAcquisitions = Math.round(totalAcquisitions * 0.10); // 10% Ebooks
+    printAcquisitions = totalAcquisitions - ebookAcquisitions; // Rest ist Print
+  } else {
+    // Letzten 10 Jahre: konstant 2% nur für Print-Bestand
+    printAcquisitions = Math.round(oldStock1 * 0.02);
+    ebookAcquisitions = null; // Unbekannt ab 2036
+    totalAcquisitions = null; // Unbekannt ab 2036
+  }
+  
+  currentPrintStock1 += printAcquisitions;
+  currentEbookStock1 += (ebookAcquisitions || 0);
+  
+  SCENARIO_1_DATA.push({
+    year: year,
+    printAcquisitions: printAcquisitions,
+    printStock: currentPrintStock1,
+    printGrowthRate: parseFloat((printAcquisitions / oldStock1 * 100).toFixed(2)),
+    // Versteckte Daten für eventuelle Nachfragen
+    _totalAcquisitions: totalAcquisitions,
+    _ebookAcquisitions: ebookAcquisitions,
+    _ebookStock: currentEbookStock1
+  });
+}
+
+// Szenario 2: 25% der Neuerwerbungen als Ebooks
+const SCENARIO_2_DATA = [];
+let currentPrintStock2 = BASE_STOCK_2025;
+let currentEbookStock2 = INITIAL_EBOOK_STOCK;
+
+for (let i = 0; i < 20; i++) {
+  const year = 2026 + i;
+  const oldStock2 = currentPrintStock2;
+  let totalAcquisitions, printAcquisitions, ebookAcquisitions;
+  
+  if (i < 10) {
+    // Erste 10 Jahre: 100% der historischen Raten, aber 25% als Ebooks
+    const totalGrowthRate = HISTORICAL_GROWTH_RATES[i % 10];
+    totalAcquisitions = Math.round(oldStock2 * (totalGrowthRate / 100));
+    ebookAcquisitions = Math.round(totalAcquisitions * 0.25); // 25% Ebooks
+    printAcquisitions = totalAcquisitions - ebookAcquisitions; // Rest ist Print
+  } else {
+    // Letzten 10 Jahre: konstant 2% nur für Print-Bestand
+    printAcquisitions = Math.round(oldStock2 * 0.02);
+    ebookAcquisitions = null; // Unbekannt ab 2036
+    totalAcquisitions = null; // Unbekannt ab 2036
+  }
+  
+  currentPrintStock2 += printAcquisitions;
+  currentEbookStock2 += (ebookAcquisitions || 0);
+  
+  SCENARIO_2_DATA.push({
+    year: year,
+    printAcquisitions: printAcquisitions,
+    printStock: currentPrintStock2,
+    printGrowthRate: parseFloat((printAcquisitions / oldStock2 * 100).toFixed(2)),
+    // Versteckte Daten für eventuelle Nachfragen
+    _totalAcquisitions: totalAcquisitions,
+    _ebookAcquisitions: ebookAcquisitions,
+    _ebookStock: currentEbookStock2
+  });
+}
+
+// Szenario 3: 50% der Neuerwerbungen als Ebooks
+const SCENARIO_3_DATA = [];
+let currentPrintStock3 = BASE_STOCK_2025;
+let currentEbookStock3 = INITIAL_EBOOK_STOCK;
+
+for (let i = 0; i < 20; i++) {
+  const year = 2026 + i;
+  const oldStock3 = currentPrintStock3;
+  let totalAcquisitions, printAcquisitions, ebookAcquisitions;
+  
+  if (i < 10) {
+    // Erste 10 Jahre: 100% der historischen Raten, aber 50% als Ebooks
+    const totalGrowthRate = HISTORICAL_GROWTH_RATES[i % 10];
+    totalAcquisitions = Math.round(oldStock3 * (totalGrowthRate / 100));
+    ebookAcquisitions = Math.round(totalAcquisitions * 0.50); // 50% Ebooks
+    printAcquisitions = totalAcquisitions - ebookAcquisitions; // Rest ist Print
+  } else {
+    // Letzten 10 Jahre: konstant 2% nur für Print-Bestand
+    printAcquisitions = Math.round(oldStock3 * 0.02);
+    ebookAcquisitions = null; // Unbekannt ab 2036
+    totalAcquisitions = null; // Unbekannt ab 2036
+  }
+  
+  currentPrintStock3 += printAcquisitions;
+  currentEbookStock3 += (ebookAcquisitions || 0);
+  
+  SCENARIO_3_DATA.push({
+    year: year,
+    printAcquisitions: printAcquisitions,
+    printStock: currentPrintStock3,
+    printGrowthRate: parseFloat((printAcquisitions / oldStock3 * 100).toFixed(2)),
+    // Versteckte Daten für eventuelle Nachfragen
+    _totalAcquisitions: totalAcquisitions,
+    _ebookAcquisitions: ebookAcquisitions,
+    _ebookStock: currentEbookStock3
+  });
+}
+
+// Statistiken berechnen
+const SCENARIO_1_FINAL_STOCK = SCENARIO_1_DATA[19].printStock;
+const SCENARIO_2_FINAL_STOCK = SCENARIO_2_DATA[19].printStock;
+const SCENARIO_3_FINAL_STOCK = SCENARIO_3_DATA[19].printStock;
+</script>
+```
+
+## Übersicht
+
+<p>Auf dieser Seite finden sich drei Szenarien für die Entwicklung des Print-Bestands der Bibliothek in den kommenden 20 Jahren.</p>
+
+<p>Der aktuelle Anteil von Ebooks am Gesamtbestand beträgt <strong>0,7 Prozent</strong>. Die drei Szenarien gehen aus von einer <strong>sehr starken Erhöhung des Ebook-Anteils (10 Prozent)</strong> bei den Neuerwerbungen (2026-2035), einer <strong>fundamentalen Erhöhung (25 Prozent)</strong> sowie einer <strong>extremen Erhöhung (50 Prozent).</strong></p>  
+
+::: {style="height: 40px;"}
+:::
+
+## Szenario 1: Erwerbung mit sehr starker Erhöhung des Ebook-Anteils
+
+```{=html}
+<div class="chart-container">
+  
+  <div style="display: flex; justify-content: center; margin: 15px 0;">
+    <div class="info-box green" style="flex: none;">
+      <div class="info-box-value" id="scenario1FinalStock" aria-live="polite">-</div>
+      <div class="info-box-label">Bestand 31.12.2045</div>
+    </div>
+  </div>
+
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button id="lineBtnScenario1" onclick="changeChartTypeScenario1('line')" 
+            aria-label="Wechsel zu Liniendiagramm für Szenario 1"
+            class="dashboard-button" 
+            style="background: #28a745;">Liniendiagramm</button>
+    <button id="barBtnScenario1" onclick="changeChartTypeScenario1('bar')" 
+            aria-label="Wechsel zu Balkendiagramm für Szenario 1"
+            class="dashboard-button" 
+            style="background: #007bff;">Balkendiagramm</button>
+    <button onclick="downloadChartScenario1()" 
+            aria-label="Diagramm Szenario 1 als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
+
+  <div style="position: relative; height: 600px; margin: 10px 0;">
+    <canvas id="scenario1Chart" role="img" aria-label="Diagramm der Bestandsprognose Szenario 1 von 2026 bis 2045"></canvas>
+  </div>
+</div>
+```
+
+<p>Dieses Szenario beruht für die ersten 10 Jahre auf den Zuwachsraten des Printbestands in der Bibliothek des MPI zur Erforschung multireligiöser und multiethnischer Gesellschaften (MPI-MMG) in der Dekade nach der Institutsgründung. Für die folgenden Prognosejahre wird von dem durch die HIS-HE definierten Standard-Wachstum von 2 Prozent/Jahr ausgegangen.</p>
+
+<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>10 Prozent der Neuerwerbungen (2026-2035) als Ebook</strong> erfolgen. Dies repräsentiert einen sehr starken Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent (2025) am Gesamtbestand führten.</p>
+
+<p>Für die <strong>Budgetplanung</strong> ist zu beachten, dass eine Bibliothekslizenz für ein Ebook etwa dreimal so teuer ist wie die Print-Ausgabe.</p>
+
+<details id="detailsScenario1">
+<summary>Detaildaten Szenario 1</summary>
+<div class="details-content"></div>
+</details>
+
+::: {style="height: 40px;"}
+:::
+
+## Szenario 2: Erwerbung mit fundamentaler Erhöhung des Ebook-Anteils
+
+```{=html}
+<div class="chart-container">
+  
+  <div style="display: flex; justify-content: center; margin: 15px 0;">
+    <div class="info-box orange" style="flex: none;">
+      <div class="info-box-value" id="scenario2FinalStock" aria-live="polite">-</div>
+      <div class="info-box-label">Bestand 31.12.2045</div>
+    </div>
+  </div>
+
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button id="lineBtnScenario2" onclick="changeChartTypeScenario2('line')" 
+            aria-label="Wechsel zu Liniendiagramm für Szenario 2"
+            class="dashboard-button" 
+            style="background: #28a745;">Liniendiagramm</button>
+    <button id="barBtnScenario2" onclick="changeChartTypeScenario2('bar')" 
+            aria-label="Wechsel zu Balkendiagramm für Szenario 2"
+            class="dashboard-button" 
+            style="background: #007bff;">Balkendiagramm</button>
+    <button onclick="downloadChartScenario2()" 
+            aria-label="Diagramm Szenario 2 als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
+
+  <div style="position: relative; height: 600px; margin: 10px 0;">
+    <canvas id="scenario2Chart" role="img" aria-label="Diagramm der Bestandsprognose Szenario 2 von 2026 bis 2045"></canvas>
+  </div>
+</div>
+```
+
+<p>Dieses Szenario beruht ebenfalls für die ersten 10 Jahre auf den Zuwachsraten des MPI-MMG nach seiner Neugründung und die Folgejahre auf dem Standard-Wachstum von 2 Prozent/Jahr.</p>
+
+<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>25 Prozent der Neuerwerbungen als Ebook</strong> erfolgen. Dies repräsentiert einen fundamentalen Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent (2025) am Gesamtbestand führten.</p>
+
+<p>Für die <strong>Budgetplanung</strong> ist zu beachten, dass eine Bibliothekslizenz für ein Ebook etwa dreimal so teuer ist wie die Print-Ausgabe.</p>
+
+<details id="detailsScenario2">
+<summary>Detaildaten Szenario 2</summary>
+<div class="details-content"></div>
+</details>
+
+::: {style="height: 40px;"}
+:::
+
+## Szenario 3: Erwerbung mit extremer Erhöhung des Ebook-Anteils
+
+```{=html}
+<div class="chart-container">
+  
+  <div style="display: flex; justify-content: center; margin: 15px 0;">
+    <div class="info-box red" style="flex: none;">
+      <div class="info-box-value" id="scenario3FinalStock" aria-live="polite">-</div>
+      <div class="info-box-label">Bestand 31.12.2045</div>
+    </div>
+  </div>
+
+  <div style="margin: 15px 0; display: flex; gap: 8px; justify-content: center;">
+    <button id="lineBtnScenario3" onclick="changeChartTypeScenario3('line')" 
+            aria-label="Wechsel zu Liniendiagramm für Szenario 3"
+            class="dashboard-button" 
+            style="background: #28a745;">Liniendiagramm</button>
+    <button id="barBtnScenario3" onclick="changeChartTypeScenario3('bar')" 
+            aria-label="Wechsel zu Balkendiagramm für Szenario 3"
+            class="dashboard-button" 
+            style="background: #007bff;">Balkendiagramm</button>
+    <button onclick="downloadChartScenario3()" 
+            aria-label="Diagramm Szenario 3 als PNG-Datei herunterladen"
+            class="dashboard-button" 
+            style="background: #28a745;">PNG Download</button>
+  </div>
+
+  <div style="position: relative; height: 600px; margin: 10px 0;">
+    <canvas id="scenario3Chart" role="img" aria-label="Diagramm der Bestandsprognose Szenario 3 von 2026 bis 2045"></canvas>
+  </div>
+</div>
+```
+
+<p>Dieses Szenario beruht ebenfalls für die ersten 10 Jahre auf den Zuwachsraten des MPI-MMG nach seiner Neugründung und die Folgejahre auf dem Standard-Wachstum von 2 Prozent/Jahr.</p>
+
+<p>Dieses Szenario stellt die Entwicklung dar für den Fall, dass <strong>50 Prozent der Neuerwerbungen als Ebook</strong> erfolgen. Dies repräsentiert einen extremen Wandel gegenüber den Erwerbungswünschen im MPI-MMG, die zu einem Ebook-Anteil von 0,7 Prozent (2025) am Gesamtbestand führten.</p>
+
+<p>Für die <strong>Budgetplanung</strong> ist zu beachten, dass eine Bibliothekslizenz für ein Ebook etwa dreimal so teuer ist wie die Print-Ausgabe.</p>
+
+<details id="detailsScenario3">
+<summary>Detaildaten Szenario 3</summary>
+<div class="details-content"></div>
+</details>
+
+```{=html}
+<script>
+// Chart instances and state variables
+let chartScenario1, chartScenario2, chartScenario3;
+let currentChartTypeScenario1 = 'line';
+let currentChartTypeScenario2 = 'line';
+let currentChartTypeScenario3 = 'line';
+
+// ===== SCENARIO 1 CHART =====
+function initChartScenario1(type = 'line') {
+  const ctx = document.getElementById('scenario1Chart');
+  if (!ctx) {
+    console.error('Canvas element scenario1Chart not found');
+    return;
+  }
+  
+  if (chartScenario1) { 
+    chartScenario1.destroy(); 
+  }
+
+  currentChartTypeScenario1 = type;
+  updateActiveButtons(type, 'lineBtnScenario1', 'barBtnScenario1');
+
+  const config = getStandardChartConfig(type, {
+    labels: SCENARIO_1_DATA.map(d => d.year),
+    datasets: [
+      {
+        label: 'Print-Bestand (Szenario 1)',
+        data: SCENARIO_1_DATA.map(d => d.printStock),
+        borderColor: '#28a745',
+        backgroundColor: type === 'bar' ? '#28a745' : '#28a74520',
+        borderWidth: 3,
+        pointRadius: type === 'line' ? 4 : 0,
+        fill: type === 'line'
+      }
+    ]
+  }, {
+    scales: {
+      y: { 
+        title: { display: true, text: 'Print-Bestand (Anzahl Bücher)', font: { size: 12 } }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const dataPoint = SCENARIO_1_DATA[context.dataIndex];
+            return [
+              `Print-Bestand: ${formatNumber(dataPoint.printStock)}`,
+              `Print-Erwerbungen: ${formatNumber(dataPoint.printAcquisitions)}`,
+              `Print-Wachstumsrate: ${dataPoint.printGrowthRate}%`
+            ];
+          }
+        }
+      }
+    }
+  });
+  
+  chartScenario1 = new Chart(ctx.getContext('2d'), config);
+  announceToScreenReader(`Szenario 1 Diagramm als ${type === 'line' ? 'Liniendiagramm' : 'Balkendiagramm'} geladen`);
+}
+
+function changeChartTypeScenario1(type) { 
+  initChartScenario1(type); 
+}
+
+function downloadChartScenario1() {
+  downloadChart(chartScenario1, 'prognose_szenario1_2026-2045.png', 'Prognose Szenario 1');
+}
+
+// ===== SCENARIO 2 CHART =====
+function initChartScenario2(type = 'line') {
+  const ctx = document.getElementById('scenario2Chart');
+  if (!ctx) {
+    console.error('Canvas element scenario2Chart not found');
+    return;
+  }
+  
+  if (chartScenario2) { 
+    chartScenario2.destroy(); 
+  }
+
+  currentChartTypeScenario2 = type;
+  updateActiveButtons(type, 'lineBtnScenario2', 'barBtnScenario2');
+
+  const config = getStandardChartConfig(type, {
+    labels: SCENARIO_2_DATA.map(d => d.year),
+    datasets: [
+      {
+        label: 'Print-Bestand (Szenario 2)',
+        data: SCENARIO_2_DATA.map(d => d.printStock),
+        borderColor: '#fd7e14',
+        backgroundColor: type === 'bar' ? '#fd7e14' : '#fd7e1420',
+        borderWidth: 3,
+        pointRadius: type === 'line' ? 4 : 0,
+        fill: type === 'line'
+      }
+    ]
+  }, {
+    scales: {
+      y: { 
+        title: { display: true, text: 'Print-Bestand (Anzahl Bücher)', font: { size: 12 } }
+      }
+    },
+    plugins: {
+      legend: { 
+        display: false
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const dataPoint = SCENARIO_2_DATA[context.dataIndex];
+            return [
+              `Print-Bestand: ${formatNumber(dataPoint.printStock)}`,
+              `Print-Erwerbungen: ${formatNumber(dataPoint.printAcquisitions)}`,
+              `Print-Wachstumsrate: ${dataPoint.printGrowthRate}%`
+            ];
+          }
+        }
+      }
+    }
+  });
+  
+  chartScenario2 = new Chart(ctx.getContext('2d'), config);
+  announceToScreenReader(`Szenario 2 Diagramm als ${type === 'line' ? 'Liniendiagramm' : 'Balkendiagramm'} geladen`);
+}
+
+function changeChartTypeScenario2(type) { 
+  initChartScenario2(type); 
+}
+
+function downloadChartScenario2() {
+  downloadChart(chartScenario2, 'prognose_szenario2_2026-2045.png', 'Prognose Szenario 2');
+}
+
+// ===== SCENARIO 3 CHART =====
+function initChartScenario3(type = 'line') {
+  const ctx = document.getElementById('scenario3Chart');
+  if (!ctx) {
+    console.error('Canvas element scenario3Chart not found');
+    return;
+  }
+  
+  if (chartScenario3) { 
+    chartScenario3.destroy(); 
+  }
+
+  currentChartTypeScenario3 = type;
+  updateActiveButtons(type, 'lineBtnScenario3', 'barBtnScenario3');
+
+  const config = getStandardChartConfig(type, {
+    labels: SCENARIO_3_DATA.map(d => d.year),
+    datasets: [
+      {
+        label: 'Print-Bestand (Szenario 3)',
+        data: SCENARIO_3_DATA.map(d => d.printStock),
+        borderColor: '#dc3545',
+        backgroundColor: type === 'bar' ? '#dc3545' : '#dc354520',
+        borderWidth: 3,
+        pointRadius: type === 'line' ? 4 : 0,
+        fill: type === 'line'
+      }
+    ]
+  }, {
+    scales: {
+      y: { 
+        title: { display: true, text: 'Print-Bestand (Anzahl Bücher)', font: { size: 12 } }
+      }
+    },
+    plugins: {
+      legend: { 
+        display: false
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            const dataPoint = SCENARIO_3_DATA[context.dataIndex];
+            return [
+              `Print-Bestand: ${formatNumber(dataPoint.printStock)}`,
+              `Print-Erwerbungen: ${formatNumber(dataPoint.printAcquisitions)}`,
+              `Print-Wachstumsrate: ${dataPoint.printGrowthRate}%`
+            ];
+          }
+        }
+      }
+    }
+  });
+  
+  chartScenario3 = new Chart(ctx.getContext('2d'), config);
+  announceToScreenReader(`Szenario 3 Diagramm als ${type === 'line' ? 'Liniendiagramm' : 'Balkendiagramm'} geladen`);
+}
+
+function changeChartTypeScenario3(type) { 
+  initChartScenario3(type); 
+}
+
+function downloadChartScenario3() {
+  downloadChart(chartScenario3, 'prognose_szenario3_2026-2045.png', 'Prognose Szenario 3');
+}
+
+// ===== UPDATE STATISTICS =====
+function updateScenario1Stats() {
+  document.getElementById('scenario1FinalStock').textContent = formatNumber(SCENARIO_1_FINAL_STOCK);
+}
+
+function updateScenario2Stats() {
+  document.getElementById('scenario2FinalStock').textContent = formatNumber(SCENARIO_2_FINAL_STOCK);
+}
+
+function updateScenario3Stats() {
+  document.getElementById('scenario3FinalStock').textContent = formatNumber(SCENARIO_3_FINAL_STOCK);
+}
+
+// ===== GENERATE TABLES =====
+function generateTableScenario1() {
+  const columns = [
+    { field: 'year', title: 'Jahr' },
+    { field: 'printAcquisitions', title: 'Print-Erwerbungen', formatter: formatNumber },
+    { field: 'printStock', title: 'Print-Bestand', formatter: formatNumber }
+  ];
+  return generateTable(SCENARIO_1_DATA, columns, {
+    className: 'table table-striped table-hover',
+    ariaLabel: 'Detaildaten Prognose Szenario 1'
+  });
+}
+
+function generateTableScenario2() {
+  const columns = [
+    { field: 'year', title: 'Jahr' },
+    { field: 'printAcquisitions', title: 'Print-Erwerbungen', formatter: formatNumber },
+    { field: 'printStock', title: 'Print-Bestand', formatter: formatNumber }
+  ];
+  return generateTable(SCENARIO_2_DATA, columns, {
+    className: 'table table-striped table-hover',
+    ariaLabel: 'Detaildaten Prognose Szenario 2'
+  });
+}
+
+function generateTableScenario3() {
+  const columns = [
+    { field: 'year', title: 'Jahr' },
+    { field: 'printAcquisitions', title: 'Print-Erwerbungen', formatter: formatNumber },
+    { field: 'printStock', title: 'Print-Bestand', formatter: formatNumber }
+  ];
+  return generateTable(SCENARIO_3_DATA, columns, {
+    className: 'table table-striped table-hover',
+    ariaLabel: 'Detaildaten Prognose Szenario 3'
+  });
+}
+
+function initTables() {
+  try {
+    document.querySelector('#detailsScenario1 .details-content').innerHTML = generateTableScenario1();
+    document.querySelector('#detailsScenario2 .details-content').innerHTML = generateTableScenario2();
+    document.querySelector('#detailsScenario3 .details-content').innerHTML = generateTableScenario3();
+    console.log('Forecast tables initialized successfully');
+  } catch (error) {
+    console.error('Error initializing forecast tables:', error);
+  }
+}
+
+// ===== INITIALIZATION =====
+function initializeForecasts() {
+  try {
+    console.log('Initializing Forecasts Dashboard...');
+    
+    // Update all statistics
+    updateScenario1Stats();
+    updateScenario2Stats();
+    updateScenario3Stats();
+    
+    // Initialize all charts
+    initChartScenario1();
+    initChartScenario2();
+    initChartScenario3();
+    
+    // Initialize tables
+    initTables();
+    
+    // Initialize common dashboard functionality
+    initDashboard([chartScenario1, chartScenario2, chartScenario3]);
+    
+    console.log('Forecasts initialization complete');
+    
+  } catch (error) {
+    console.error('Forecasts initialization failed:', error);
+    announceToScreenReader('Fehler beim Laden der Prognosen');
+  }
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeForecasts);
+} else {
+  initializeForecasts();
+}
+
+// Fallback initialization
+window.addEventListener('load', function() {
+  if (!chartScenario1 || !chartScenario2 || !chartScenario3) {
+    console.log('Re-initializing forecast charts...');
+    initializeForecasts();
+  }
+});
+</script>
+```

@@ -37,6 +37,5 @@ Von 2008 bis 2020 durchlief die neu gegründete MPI-MMG-Bibliothek eine Phase in
 
 Ab 2019 befand sich die Bibliothek in einer Sondersituation: Zwei Forschungsabteilungen wurden geschlossen, das Bibliotheksgebäude war gesperrt und der Bestand zunächst nicht zugänglich, später ausgelagert. Zusätzlich verhinderte die Corona-Pandemie ab 2020 die Präsenznutzung der Bibliothek. Die Jahre 2023 und vor allem 2024 markieren schließlich den Beginn einer neuen Phase geprägt von der bevorstehenden Schließung des MPI-MMG und einer erneuten institutionellen Neuorientierung.
 
-Diese Seiten ermöglichen detaillierte Einblicke in die [Entwicklung des Bestands](erwerbungen.qmd) sowie die [fachlichen Schwerpunkte des aktuellen Bestands](bestand.qmd).
-
+Diese Seiten ermöglichen detaillierte Einblicke in die [Entwicklung des Bestands](erwerbungen.qmd) sowie die [fachlichen Schwerpunkte des aktuellen Bestands](bestand.qmd). Ergänzt wird die Darstellung durch eine [Prognose für die zukünftige Bestandsentwicklung](prognosen.qmd).
 </script>
