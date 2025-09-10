@@ -1,5 +1,5 @@
 ---
-title: "Prognosen"
+title: "Prognose"
 subtitle: "Erwerbungsszenarien (2026-2045)"
 author: "Thomas Gerdes [![ORCID](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0001-8524-5987){target=\"_blank\"}"
 date: "2025-08-15"
