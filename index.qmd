@@ -29,7 +29,7 @@ format:
 
 ## Einleitung
 
-Das MPI für Geschichte bestand in Göttingen bis 2007. Im Jahr darauf wurde dort das [MPI zur Erforschung multireligiöser und multiethnischer Gesellschaften](https://www.mmg.mpg.de/startseite) (MPI-MMG) gegründet. Dieses Dashboard deckt die Entwicklung der Institutsbibliothek vom Jahr 2000 bis 2024 ab.
+Das Max-Planck-Institut für Geschichte bestand in Göttingen bis 2007. Im Jahr darauf wurde dort das [Max-Planck-Institut zur Erforschung multireligiöser und multiethnischer Gesellschaften](https://www.mmg.mpg.de/startseite) (MPI-MMG) gegründet. Dieses Dashboard deckt die Entwicklung der Institutsbibliothek vom Jahr 2000 bis 2024 ab.
 
 Die ersten Jahre zeigen eine saturierte Geschichtsbibliothek mit moderatem Wachstum. Die Jahre 2006 und 2007 markieren eine Phase der Neuorientierung und des institutionellen Übergangs.
 
